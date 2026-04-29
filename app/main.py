@@ -806,8 +806,9 @@ def initialize_ga4_source_with_custom_reports():
 app = FastAPI()
 
 @app.get("/")
-async def root():
-    return {"status": "ok", "service": "reworldmedia-ga4-importer"}
+async def test_function(request: Request):
+    """API endpoint to process reports."""
+    return await process_reports(request)
 
 @app.get("/health")
 async def health_check():
