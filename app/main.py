@@ -74,7 +74,7 @@ def setup_logging():
 # Initialize configurations and logging
 logger = setup_logging()
 config = Config()
-validate_config(config)  # Ensure everything is correct at startup
+#validate_config(config)  # Ensure everything is correct at startup
 os.environ["TZ"] = "UTC"
 
 # Constants
@@ -780,6 +780,8 @@ def process_ga4_reports_standalone(available_reports: list[str]) -> dict:
 
 
 def initialize_ga4_source_with_custom_reports():
+    validate_config(config)
+    config.validate()
     return process_ga4_reports_standalone(config.AVAILABLE_REPORTS)
 
 app = FastAPI()

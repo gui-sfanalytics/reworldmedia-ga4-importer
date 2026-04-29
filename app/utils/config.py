@@ -66,5 +66,5 @@ class Config:
             raise ValueError(f"Required configuration variables are missing: {', '.join(missing)}")
 
 # Create a Config instance and validate it
-config = Config()
-config.validate()
+#config = Config()
+#config.validate()
