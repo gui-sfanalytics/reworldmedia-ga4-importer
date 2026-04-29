@@ -1,77 +1,71 @@
 # app/utils/gcp_clients.py
-import os
 import json
-import logging
-from google.auth import default as google_auth_default
-from google.cloud import bigquery, storage, secretmanager
+from typing import Any
+from google.oauth2 import service_account
+from google.cloud import storage, bigquery
+import os
+from app.utils.secret_manager import get_secret
+from app.utils.config import Config
 
-logger = logging.getLogger(__name__)
+config = Config()
 
-
-def get_credentials():
+def get_client(secret_name: str, client_class: Any) -> Any:
     """
-    Retourne les credentials GCP.
-    - Sur Cloud Run  : google.auth.default() utilise le Service Account attaché (ADC)
-    - En local       : utilise GOOGLE_APPLICATION_CREDENTIALS ou gcloud auth
+    Create a GCP client using credentials from Secret Manager.
+
+    Args:
+        secret_name (str): The name of the secret containing the service account credentials.
+        client_class (Any): The GCP client class to instantiate (e.g., storage.Client, bigquery.Client).
+
+    Returns:
+        Any: An instance of the specified GCP client class.
+
+    Raises:
+        Exception: If there is an error creating the client.
     """
-    credentials, project = google_auth_default(
-        scopes=["https://www.googleapis.com/auth/cloud-platform"]
-    )
-    return credentials, project
-
-
-def get_bigquery_client(project_id: str = None) -> bigquery.Client:
-    """Crée un client BigQuery en utilisant les credentials ADC."""
-    credentials, default_project = get_credentials()
-    project = project_id or default_project or os.getenv('CLIENT_PROJECT_ID')
-    logger.info(f"Création du client BigQuery pour le projet : {project}")
-    return bigquery.Client(project=project, credentials=credentials)
-
-
-def get_storage_client(project_id: str = None) -> storage.Client:
-    """Crée un client Cloud Storage en utilisant les credentials ADC."""
-    credentials, default_project = get_credentials()
-    project = project_id or default_project or os.getenv('CLIENT_PROJECT_ID')
-    logger.info(f"Création du client Storage pour le projet : {project}")
-    return storage.Client(project=project, credentials=credentials)
-
-
-def get_secret_manager_client() -> secretmanager.SecretManagerServiceClient:
-    """Crée un client Secret Manager en utilisant les credentials ADC."""
-    credentials, _ = get_credentials()
-    return secretmanager.SecretManagerServiceClient(credentials=credentials)
-
-
-def get_ga4_credentials_json(secret_name_or_path: str = None) -> dict:
-    """
-    Retourne les credentials GA4 sous forme de dict.
-
-    Priorité :
-    1. Si secret_name_or_path est un fichier .json local → lecture directe
-    2. Si c'est un nom de secret → lecture depuis Secret Manager
-    3. Sinon → retourne None (l'appelant utilisera ADC ou OAuth)
-    """
-    if not secret_name_or_path:
-        logger.info("Aucun secret GA4 configuré, utilisation de ADC.")
-        return None
-
-    # Cas 1 : fichier local
-    if secret_name_or_path.endswith('.json') and os.path.exists(secret_name_or_path):
-        logger.info(f"Lecture des credentials GA4 depuis le fichier : {secret_name_or_path}")
-        with open(secret_name_or_path, 'r') as f:
-            return json.load(f)
-
-    # Cas 2 : secret dans Secret Manager
     try:
-        project_id = os.getenv('SERVICE_SECRET_PROJECT_ID') or os.getenv('CLIENT_PROJECT_ID')
-        secret_path = f"projects/{project_id}/secrets/{secret_name_or_path}/versions/latest"
-        logger.info(f"Lecture du secret depuis Secret Manager : {secret_path}")
-
-        client = get_secret_manager_client()
-        response = client.access_secret_version(request={"name": secret_path})
-        secret_value = response.payload.data.decode("UTF-8")
-        return json.loads(secret_value)
-
+        # Check if the "secret_name" is actually a local file path
+        if secret_name.endswith('.json') and os.path.exists(secret_name):
+            with open(secret_name, 'r') as f:
+                creds_json = f.read()
+        else:
+            creds_json = get_secret(secret_name)
+            
+        creds = service_account.Credentials.from_service_account_info(json.loads(creds_json))
+        return client_class(credentials=creds, project=config.CLIENT_PROJECT_ID)
     except Exception as e:
-        logger.warning(f"Impossible de lire le secret '{secret_name_or_path}' : {e}")
-        return None
+        print(f"Error creating {client_class.__name__} client: {str(e)}")
+        raise
+
+def get_storage_client() -> storage.Client:
+    """
+    Creates a Google Cloud Storage client.
+
+    Returns:
+        storage.Client: A Google Cloud Storage client object.
+    """
+    return get_client('STORAGE_CREDS_SECRET_NAME', storage.Client)
+
+
+def get_bigquery_client() -> bigquery.Client:
+    """
+    Creates a Google BigQuery client.
+
+    Returns:
+        bigquery.Client: A Google BigQuery client object.
+    """
+    return get_client(config.CLIENT_BIGQUERY_CREDS, bigquery.Client)
+
+def get_ga4_credentials_json(secret_name: str):
+    try:
+        # Check if local file path
+        if secret_name.endswith('.json') and os.path.exists(secret_name):
+            with open(secret_name, 'r') as f:
+                creds_json = f.read()
+        else:
+            creds_json = get_secret(secret_name)
+        creds = json.loads(creds_json)
+        return creds
+    except Exception as e:
+        print(f"Error get GA4 secret: {str(e)}")
+        raise   

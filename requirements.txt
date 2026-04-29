@@ -14,7 +14,9 @@ functions-framework==3.*
 
 ### Data Processing
 pandas==2.1.4
-airbyte>=0.16.4
+airbyte-source-google-analytics-data-api
+tenacity==8.5.0
+pytz==2024.1
 
 ### Environment Management
 python-dotenv==1.0.1

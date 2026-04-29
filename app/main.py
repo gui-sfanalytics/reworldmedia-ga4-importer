@@ -10,17 +10,16 @@ import time
 import concurrent.futures
 from datetime import datetime, timedelta
 from typing import Any, Dict, List, Tuple, Optional, Union
-import airbyte as ab
 import pandas as pd
 import functions_framework
 from fastapi import FastAPI, Request, HTTPException
 import uvicorn
 from google.cloud import bigquery, storage, secretmanager
-from google.auth import default as google_auth_default
+from google.oauth2 import service_account
 import pytz
 from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type
-from airbyte.caches.bigquery import BigQueryCache
-from airbyte.secrets.google_gsm import GoogleGSMSecretManager
+
+import subprocess
 
 # Import your utility modules
 from app.utils.config import Config
@@ -84,33 +83,29 @@ os.environ["GOOGLE_CLOUD_PROJECT"] = config.CLIENT_PROJECT_ID
 
 # Utility functions
 def get_ga4_credentials():
-    """
-    Retourne les credentials GA4 pour Airbyte.
-
-    Priorité :
-    1. Fichier Service Account local (.json)
-    2. Secret Manager (si GA4_SERVICE_ACCOUNT_PATH = nom de secret)
-    3. OAuth (GA4_CLIENT_ID + GA4_CLIENT_SECRET + GA4_REFRESH_TOKEN)
-    4. ADC via google.auth.default() — automatique sur Cloud Run
-    """
-    # 1. Service Account (fichier local ou secret)
+    """Get GA4 credentials from configuration (Service Account or OAuth)."""
+    # Check for Service Account first
     sa_path = getattr(config, 'GA4_SERVICE_ACCOUNT_PATH', None)
     if sa_path:
-        creds_dict = get_ga4_credentials_json(sa_path)
-        if creds_dict:
-            logger.info("Utilisation des credentials GA4 (Service Account).")
-            return {
-                "auth_type": "Service",
-                "credentials_json": json.dumps(creds_dict)
-            }
+        if os.path.exists(sa_path):
+            try:
+                with open(sa_path, 'r') as f:
+                    creds_json = f.read()
+                    logger.info(f"Using Service Account credentials from {sa_path}.")
+                    return {
+                        "auth_type": "Service",
+                        "credentials_json": creds_json
+                    }
+            except Exception as e:
+                logger.error(f"Error reading service account file {sa_path}: {str(e)}")
 
-    # 2. OAuth
+    # Fallback to OAuth
     client_id = os.environ.get('GA4_CLIENT_ID')
     client_secret = os.environ.get('GA4_CLIENT_SECRET')
     refresh_token = os.environ.get('GA4_REFRESH_TOKEN')
-
+    
     if all([client_id, client_secret, refresh_token]):
-        logger.info("Utilisation des credentials OAuth GA4.")
+        logger.info("Using OAuth Client credentials from environment.")
         return {
             "auth_type": "Client",
             "client_id": client_id,
@@ -118,19 +113,8 @@ def get_ga4_credentials():
             "refresh_token": refresh_token,
         }
 
-    # 3. ADC — sur Cloud Run, le Service Account attaché est utilisé automatiquement
-    logger.info("Utilisation de ADC (google.auth.default) pour GA4.")
-    credentials, _ = google_auth_default(
-        scopes=["https://www.googleapis.com/auth/analytics.readonly"]
-    )
-    # Airbyte attend un dict de credentials → on sérialise le token
-    return {
-        "auth_type": "Service",
-        "credentials_json": json.dumps({
-            "type": "external_account",
-            "note": "ADC credentials injected at runtime by Cloud Run"
-        })
-    }
+    logger.error("No valid GA4 credentials found (Service Account or OAuth)")
+    raise ValueError("Missing required GA4 credentials")
 
 def create_sync_state_table_if_not_exists(bigquery_client: bigquery.Client) -> None:
     """Create the sync state tracking table if it doesn't exist."""
@@ -596,318 +580,207 @@ def intradays_process(request):
     return result
 
 # main.py
-def initialize_bigquery_cache():
-    """Initialize a BigQuery cache for Airbyte en utilisant ADC (Application Default Credentials)."""
-    try:
-        # Sur Cloud Run : ADC utilise automatiquement le Service Account attaché
-        # En local : utilise GOOGLE_APPLICATION_CREDENTIALS ou gcloud auth login
-        credentials, _ = google_auth_default(
-            scopes=["https://www.googleapis.com/auth/cloud-platform"]
-        )
-        logger.info("Credentials BigQuery chargés via ADC (google.auth.default)")
+def run_airbyte_command(args: list[str]) -> list[dict]:
+    process = subprocess.run(
+        args,
+        capture_output=True,
+        text=True,
+        check=False
+    )
 
-        # Create dataset if it doesn't exist
-        raw_dataset_id = f"{config.CLIENT_DATASET_ID}_raw"
-        client = bigquery.Client(
-            project=config.CLIENT_PROJECT_ID,
-            credentials=credentials
-        )
-        
-        dataset_ref = f"{config.CLIENT_PROJECT_ID}.{raw_dataset_id}"
-        try:
-            client.get_dataset(dataset_ref)
-            logger.info(f"Dataset {raw_dataset_id} already exists")
-        except Exception:
-            # Create the dataset
-            dataset = bigquery.Dataset(dataset_ref)
-            dataset.location = "US"  # Set your preferred location
-            client.create_dataset(dataset)
-            logger.info(f"Created dataset {raw_dataset_id}")
-        
-        # Create the BQ cache
-        bq_cache = BigQueryCache(
-            project_name=config.CLIENT_PROJECT_ID,
-            dataset_name=raw_dataset_id
-            # ADC gère l'auth automatiquement
-        )
-        
-        return bq_cache
-    except Exception as e:
-        logger.error(f"Error initializing BigQuery cache: {str(e)}")
-        return ab.get_default_cache()  # Fall back to default cache
+    if process.returncode != 0:
+        logger.error(f"Airbyte command failed: {' '.join(args)}")
+        logger.error(process.stderr)
+        raise Exception(process.stderr or process.stdout)
 
-@retry(
-    retry=retry_if_exception_type((Exception)),
-    wait=wait_exponential(multiplier=1, min=4, max=60),
-    stop=stop_after_attempt(5)
-)
-def process_stream_with_retry(source: ab.Source, report_name: str, cache) -> pd.DataFrame:
-    """Process a GA4 stream with retry logic."""
-    logger.info(f"Processing stream: {report_name}")
-    
-    # Select the stream
-    source.select_streams(report_name)
-    
-    # Read the data with force_full_refresh to ensure fresh data
-    result = source.read(cache=cache, force_full_refresh=True)
-    
-    # Get data from cache
-    if report_name not in cache:
-        raise KeyError(f"Stream {report_name} not found in cache after reading")
-    
-    # Convert to pandas DataFrame
-    try:
-        dataset = cache[report_name].to_pandas()
-    except Exception as e:
-        # Fallback for BigQueryCache which may not support to_pandas()
-        logger.info(f"Cache to_pandas() failed for {report_name}, attempting direct BigQuery query: {str(e)}")
+    messages = []
+    for line in process.stdout.splitlines():
+        line = line.strip()
+        if not line:
+            continue
         try:
-            bigquery_client = get_bigquery_client()
-            # BigQueryCache uses dataset_name (aliased to schema_name)
-            dataset_name = getattr(cache, 'dataset_name', f"{config.CLIENT_DATASET_ID}_raw")
-            table_id = f"{config.CLIENT_PROJECT_ID}.{dataset_name}.{report_name}"
-            
-            logger.info(f"Querying table directly: {table_id}")
-            query = f"SELECT * FROM `{table_id}`"
-            dataset = bigquery_client.query(query).to_dataframe()
-        except Exception as bq_err:
-            logger.error(f"Fallback Direct BigQuery query failed: {str(bq_err)}")
-            raise e # Raise original error if fallback fails
-            
-    if dataset.empty:
-        logger.warning(f"No data returned for stream {report_name}")
-    else:
-        logger.info(f"Retrieved {len(dataset)} rows for stream {report_name}")
-    
-    return dataset
+            messages.append(json.loads(line))
+        except json.JSONDecodeError:
+            logger.info(f"Non-JSON Airbyte output: {line}")
 
-def process_ga4_reports(available_reports: List[str], source: ab.Source) -> Dict[str, Union[List[str], str]]:
-    """Process each report in the available_reports list with improved error handling."""
-    # Try to use BigQuery cache or fall back to default
-    try:
-        cache = initialize_bigquery_cache()
-        # cache = ab.get_default_cache()
-        logger.info("Using BigQuery cache for Airbyte")
-    except Exception as e:
-        logger.warning(f"Falling back to default cache: {str(e)}")
-        cache = ab.get_default_cache()
-    
-    failed_reports = []
-    successful_reports = []
-    bigquery_client = get_bigquery_client()
-    
-    for report_name in available_reports:
-        try:
-            # Strip suffix for the source stream name
-            stream_name = report_name.replace('_intradays4', '')
-            logger.info(f"Processing report: {report_name} (Source stream: {stream_name})")
-            
-            # Process stream with retry logic
-            dataset = process_stream_with_retry(source, stream_name, cache)
-            
-            # Prepare data for BigQuery
-            bq_tablename = f"{report_name}"
-            # bq_tablename = f"{report_name}"
-            # Convert the date column from YYYYMMDD to YYYY-MM-DD
-            if 'date' in dataset.columns:
-                dataset['date'] = pd.to_datetime(dataset['date'], format='%Y%m%d')
-                dataset['date'] = dataset['date'].dt.strftime('%Y-%m-%d')
-            
-            # Add metadata
-            dataset['_processed_at'] = datetime.now().isoformat()
-            
-            # Save to temporary CSV (useful for debugging)
-            csv_filename = f"{report_name}.csv"
-            csv_path = f"/tmp/{csv_filename}"
-            dataset.to_csv(csv_path, index=False)
-            logger.info(f"Saved CSV to {csv_path}")
-            
-            # Load to BigQuery
-            load_to_bigquery(dataset, bigquery_client, bq_tablename)
-            
-            logger.info(f"Successfully processed {report_name}")
-            successful_reports.append(report_name)
-            
-        except KeyError as e:
-            logger.error(f"Error: {report_name} not found in cache. Skipping. Details: {str(e)}")
-            failed_reports.append(report_name)
-        except Exception as e:
-            logger.error(f"Error processing {report_name}: {str(e)}")
-            failed_reports.append(report_name)
-    
-    # Prepare result
-    result = {
-        "successful_reports": successful_reports,
-        "failed_reports": failed_reports
-    }
-    
-    # Prepare and send Pub/Sub message
-    if not failed_reports:
-        message = "All available_reports processed"
-        result["status"] = "success"
-    else:
-        message = f"The following reports failed: {', '.join(failed_reports)}"
-        result["status"] = "partial_failure"
-    
-    # Include message in result
-    result["message"] = message
-    
-    # Publish to Pub/Sub
-    publish_to_pubsub(config.SERVICE_GA4_TO_REPORT_TOPIC, message)
-    
-    logger.info(f"process_reports Done! {len(successful_reports)}/{len(available_reports)} successful")
-    return result
+    return messages
+
+
+def write_json_tmp(filename: str, data: dict) -> str:
+    path = f"/tmp/{filename}"
+    with open(path, "w") as f:
+        json.dump(data, f)
+    return path
+
+
+def build_configured_catalog(discover_messages: list[dict], wanted_streams: list[str]) -> dict:
+    catalog = None
+
+    for msg in discover_messages:
+        if msg.get("type") == "CATALOG":
+            catalog = msg.get("catalog")
+
+    if not catalog:
+        raise Exception("No Airbyte catalog returned by discover")
+
+    selected_streams = []
+    available = []
+
+    for stream_obj in catalog.get("streams", []):
+        stream_def = stream_obj.get("stream", stream_obj)
+        stream_name = stream_def.get("name")
+
+        if not stream_name:
+            logger.warning(f"Skipping malformed catalog stream: {stream_obj}")
+            continue
+
+        available.append(stream_name)
+
+        if stream_name in wanted_streams:
+            selected_streams.append({
+                "stream": stream_def,
+                "sync_mode": "full_refresh",
+                "destination_sync_mode": "overwrite"
+            })
+
+    if not selected_streams:
+        raise Exception(f"No matching streams found. Wanted={wanted_streams}, Available={available}")
+
+    return {"streams": selected_streams}
 
 def get_ga4_source_config(start_date: str, end_date: str):
-    """Get properly configured GA4 source with custom reports."""
-    ga4_credentials = get_ga4_credentials()
-    
-    source_config = {
+    return {
         "property_ids": [config.PROPERTY_IDS],
         "date_ranges_start_date": start_date,
         "date_ranges_end_date": end_date,
         "window_in_days": 1,
-        "credentials": ga4_credentials,
+        "credentials": get_ga4_credentials(),
         "custom_reports_array": [
             {
                 "name": "engagement",
-                "dimensions": [
-                    "date"  
-                ],
-                "metrics": [
-                    "sessions"
-                ],
+                "dimensions": ["date"],
+                "metrics": ["sessions"],
                 "date_ranges": [
                     {
                         "start_date": start_date,
                         "end_date": end_date
                     }
                 ]
-            }
-        ]
+            },
+            {
+                "name": "traffic_acquisition",
+                "dimensions": ["date", "sessionDefaultChannelGroup", "sessionSourceMedium"],
+                "metrics": ["sessions", "totalUsers", "newUsers", "engagedSessions"],
+                "date_ranges": [
+                    {
+                        "start_date": start_date,
+                        "end_date": end_date
+                    }
+                ]
+            }       
+       ]
     }
-    
-    return source_config
+
+def process_ga4_reports_standalone(available_reports: list[str]) -> dict:
+    current_time = datetime.now()
+    start_date = (current_time.date() - timedelta(days=10)).strftime("%Y-%m-%d")
+    end_date = (current_time.date() - timedelta(days=1)).strftime("%Y-%m-%d")
+
+    source_config = get_ga4_source_config(start_date, end_date)
+
+    config_path = write_json_tmp("ga4_config.json", source_config)
+
+    logger.info("Checking GA4 Airbyte connector")
+    check_messages = run_airbyte_command([
+        "source-google-analytics-data-api",
+        "check",
+        "--config",
+        config_path
+    ])
+
+    logger.info(f"Check result: {check_messages}")
+
+    logger.info("Discovering GA4 streams")
+    discover_messages = run_airbyte_command([
+        "source-google-analytics-data-api",
+        "discover",
+        "--config",
+        config_path
+    ])
+
+    wanted_streams = [
+        report.replace("_intradays4", "")
+        for report in available_reports
+    ]
+
+    catalog = build_configured_catalog(discover_messages, wanted_streams)
+    catalog_path = write_json_tmp("ga4_catalog.json", catalog)
+
+    logger.info(f"Reading GA4 streams: {wanted_streams}")
+    read_messages = run_airbyte_command([
+        "source-google-analytics-data-api",
+        "read",
+        "--config",
+        config_path,
+        "--catalog",
+        catalog_path
+    ])
+
+    records_by_stream = {}
+
+    for msg in read_messages:
+        if msg.get("type") != "RECORD":
+            continue
+
+        record = msg.get("record", {})
+        stream = record.get("stream") or record.get("stream_descriptor", {}).get("name")
+        data = record.get("data")
+
+        if not stream or data is None:
+            logger.warning(f"Skipping malformed Airbyte record: {msg}")
+            continue
+
+        records_by_stream.setdefault(stream, []).append(data)
+
+    bigquery_client = get_bigquery_client()
+    successful_reports = []
+    failed_reports = []
+
+    for report in available_reports:
+        stream_name = report.replace("_intradays4", "")
+        rows = records_by_stream.get(stream_name, [])
+
+        if not rows:
+            logger.warning(f"No data returned for {stream_name}")
+            failed_reports.append(report)
+            continue
+
+        df = pd.DataFrame(rows)
+
+        if "date" in df.columns:
+            df["date"] = pd.to_datetime(df["date"], errors="coerce").dt.strftime("%Y-%m-%d")
+
+        df["_processed_at"] = datetime.now().isoformat()
+
+        try:
+            load_to_bigquery(df, bigquery_client, report)
+            successful_reports.append(report)
+        except Exception as e:
+            logger.error(f"Error loading {report}: {str(e)}")
+            failed_reports.append(report)
+
+    status = "success" if not failed_reports else "partial_failure"
+
+    return {
+        "status": status,
+        "successful_reports": successful_reports,
+        "failed_reports": failed_reports,
+        "message": "GA4 import completed",
+    }
+
 
 def initialize_ga4_source_with_custom_reports():
-    """Initialize GA4 source and verify custom reports are available."""
-    try:
-        # Calculate date range
-        current_time = datetime.now()
-        start_date = (current_time - timedelta(days=10)).strftime("%Y-%m-%d")
-        end_date = (current_time.date() - timedelta(days=1)).strftime("%Y-%m-%d")
-        
-        source_config = get_ga4_source_config(start_date, end_date)
-        
-        # Create source using locally installed connector (no Docker required)
-        source = ab.get_source(
-            "source-google-analytics-data-api",
-            config=source_config,
-            local_executable="source-google-analytics-data-api"
-        )
-        
-        # Test connection first
-        check_result = source.check()
-        
-        
-        # Get available streams AFTER configuration
-        available_streams = source.get_available_streams()
-        logger.info(f"Available streams after config: {available_streams}")
-        
-        # Process the reports
-        result = process_ga4_reports(config.AVAILABLE_REPORTS, source)    
-    except Exception as e:
-        logger.error(f"Error initializing GA4 source: {str(e)}")
-        raise
-def initial_setup():
-    """Set up GA4 connector and process reports with proper date handling and sync time tracking."""
-    try:
-        logger.info("Starting initial setup")
-        
-        # Get the last sync time or use default time range
-        last_sync_time = get_last_sync_time()
-        current_time = datetime.now()
-        
-        if last_sync_time:
-            # Use last sync time as start date with a small overlap
-            # Add a 1-day overlap to ensure no data is missed
-            start_date = (last_sync_time - timedelta(days=90)).date()
-            logger.info(f"Using last sync time as basis: {last_sync_time}")
-        else:
-            # Default to last 3 days if no previous sync
-            start_date = current_time.date() - timedelta(days=3)
-            logger.info("No previous sync found, using default date range")
-        
-        # End date is yesterday
-        end_date = current_time.date() - timedelta(days=1)
-        
-        logger.info(f"Using date range: {start_date} to {end_date}")
-        
-        # Get configuration with custom reports
-        source_config = get_ga4_source_config(
-            start_date.strftime("%Y-%m-%d"), 
-            end_date.strftime("%Y-%m-%d")
-        )
-
-        # Create and configure the source connector using locally installed connector (no Docker required)
-        source = ab.get_source(
-            "source-google-analytics-data-api",
-            config=source_config,
-            local_executable="source-google-analytics-data-api"
-        )
-        
-        # Test connection
-        logger.info("Testing connection to GA4...")
-        try:
-            check_result = source.check()
-            logger.info(f"Connection check result: {check_result}")
-        except Exception as e:
-            logger.error(f"Connection check failed with error: {str(e)}")
-            import traceback
-            traceback.print_exc()
-            # Save failed sync attempt
-            save_last_sync_time(current_time, status="error", details=f"Connection check failed: {str(e)}")
-            return {"status": "error", "message": f"Error connecting to GA4: {str(e)}"}
-        
-        # Get available streams
-        try:
-            logger.info("Getting available streams...")
-            all_available_reports = source.get_available_streams()
-            logger.info(f"Available streams: {all_available_reports}")
-        except Exception as e:
-            logger.error(f"Failed to get available streams: {str(e)}")
-            # Save failed sync attempt
-            save_last_sync_time(current_time, status="error", details=f"Failed to get streams: {str(e)}")
-            return {"status": "error", "message": f"Error getting streams: {str(e)}"}
-        
-        # For initial testing, just use daily_active_users
-        #available_reports = [
-        #    'daily_active_users'
-        #]
-        logger.info(f"Using reports: {config.AVAILABLE_REPORTS}")
-        # Process the reports
-        result = process_ga4_reports(config.AVAILABLE_REPORTS, source)
-        logger.info("Initial setup completed")
-        
-        # Save successful sync time
-        if result["status"] == "success":
-            save_last_sync_time(current_time, status="success")
-        else:
-            details = f"Partial success. Failed reports: {','.join(result.get('failed_reports', []))}"
-            save_last_sync_time(current_time, status="partial", details=details)
-        
-        return result
-        
-    except Exception as e:
-        logger.error(f"Error in initial_setup: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        
-        # Save failed sync attempt
-        current_time = datetime.now()
-        save_last_sync_time(current_time, status="error", details=f"Exception: {str(e)}")
-        
-        return {"status": "error", "message": f"Error: {str(e)}"}
+    return process_ga4_reports_standalone(config.AVAILABLE_REPORTS)
 
 # FastAPI app
 app = FastAPI()
