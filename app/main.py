@@ -782,37 +782,33 @@ def process_ga4_reports_standalone(available_reports: list[str]) -> dict:
 def initialize_ga4_source_with_custom_reports():
     return process_ga4_reports_standalone(config.AVAILABLE_REPORTS)
 
-# FastAPI app
 app = FastAPI()
 
 @app.get("/")
-async def test_function(request: Request):
-    """API endpoint to process reports."""
+async def root():
+    return {"status": "ok", "service": "reworldmedia-ga4-importer"}
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy", "timestamp": datetime.now().isoformat()}
+
+@app.get("/process")
+async def process_endpoint(request: Request):
     return await process_reports(request)
 
 @app.get("/init")
 async def setup_default_daily_table(request: Request):
-    """API endpoint to set up initial data."""
     try:
         result = initialize_ga4_source_with_custom_reports()
         return result
     except Exception as e:
         logger.error(f"Error in setup endpoint: {str(e)}")
-        return {"status": "error", "message": str(e)}, 500
-
-@app.get("/health")
-async def health_check():
-    """Health check endpoint."""
-    return {"status": "healthy", "timestamp": datetime.now().isoformat()}
+        return {"status": "error", "message": str(e)}
 
 # For local execution
 if __name__ == "__main__":
-    # For local testing
-    try:
-        result = initialize_ga4_source_with_custom_reports()
-        print(f"Initial setup result: {result}")
-    except Exception as e:
-        print(f"Error during execution: {str(e)}")
+    port = int(os.environ.get("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
     
     # Uncomment to run the API locally
     # uvicorn.run(app, host="0.0.0.0", port=8080, reload=True)
