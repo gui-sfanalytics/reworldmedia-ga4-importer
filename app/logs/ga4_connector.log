@@ -1,0 +1,1161 @@
+2026-04-20 14:01:33,616 - root - ERROR - Missing required GA4 credentials in environment variables (GA4_CLIENT_ID, GA4_CLIENT_SECRET, GA4_REFRESH_TOKEN)
+2026-04-20 14:01:33,617 - root - ERROR - Error initializing GA4 source: Missing required GA4 credentials
+2026-04-20 14:07:21,678 - root - INFO - Retrieved GA4 credentials from environment variables.
+2026-04-20 14:07:21,679 - root - ERROR - Error initializing GA4 source: AirbyteConnectorExecutableNotFoundError: Connector executable not found.
+    Connector Name: 'source-google-analytics-data-api'
+    Executable: 'source-google-analytics-data-api'
+    Working Directory: PosixPath('/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main')
+2026-04-20 14:07:35,735 - root - INFO - Retrieved GA4 credentials from environment variables.
+2026-04-20 14:07:36,574 - root - ERROR - Error initializing GA4 source: AirbyteConnectorCheckFailedError: Connector check failed.
+    Connector Name: 'source-google-analytics-data-api'
+    Log file: /var/folders/lh/y8b0skxd7513cyzgnz62g8280000gn/T/airbyte/logs/source-google-analytics-data-api/connector-log-01KPNKFMSS1Q96G7GSM22BBXDH.txt
+2026-04-20 14:16:06,344 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:16:07,568 - root - ERROR - Error initializing GA4 source: AirbyteConnectorCheckFailedError: Connector check failed.
+    Connector Name: 'source-google-analytics-data-api'
+    Failure Reason: "Config validation error: 'Client' was expected"
+    Log file: /var/folders/lh/y8b0skxd7513cyzgnz62g8280000gn/T/airbyte/logs/source-google-analytics-data-api/connector-log-01KPNKZ7EBP075G2Y0MMXEMP48.txt
+    More info: https://docs.airbyte.com/integrations/sources/google-analytics-data-api
+2026-04-20 14:17:03,225 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:17:06,937 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:17:06,938 - root - ERROR - Error initializing BigQuery cache: Environment variable SECRET_PROJECT_ID is not set.
+2026-04-20 14:17:06,991 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:17:06,991 - root - ERROR - Error initializing GA4 source: Environment variable SECRET_PROJECT_ID is not set.
+2026-04-20 14:17:36,561 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:17:39,556 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:17:39,568 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:17:39,735 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbc46a0>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:17:41,176 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbc46a0>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:17:44,504 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbc46a0>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:17:51,916 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbc46a0>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:04,001 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbc46a0>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:26,434 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:18:26,788 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbc46a0>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:26,805 - root - ERROR - Error initializing BigQuery cache: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:26,847 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:18:26,857 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:18:27,000 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbf1790>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:28,636 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbf1790>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:29,316 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:18:29,325 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:18:29,459 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x14bd82c70>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:30,596 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x14bd82c70>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:31,047 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbf1790>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:31,460 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x14bd82c70>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:33,794 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbf1790>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:35,905 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x14bd82c70>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:36,537 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x14bd82c70>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:41,859 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x14bd82c70>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:45,535 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbf1790>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:54,022 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16dbf1790>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:54,024 - root - ERROR - Error initializing GA4 source: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:56,765 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x14bd82c70>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:56,768 - root - ERROR - Error initializing BigQuery cache: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:56,812 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:18:56,819 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:18:56,943 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x14d95f040>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:58,171 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x14d95f040>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:18:58,462 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x14d95f040>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:19:03,258 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x14d95f040>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:19:31,716 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:19:34,500 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:19:34,851 - root - ERROR - Error initializing BigQuery cache: 403 Permission 'secretmanager.versions.access' denied on resource (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "iam.googleapis.com"
+metadata {
+  key: "permission"
+  value: "secretmanager.versions.access"
+}
+]
+2026-04-20 14:19:34,887 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:19:35,257 - root - ERROR - Error initializing GA4 source: 403 Permission 'secretmanager.versions.access' denied on resource (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "iam.googleapis.com"
+metadata {
+  key: "permission"
+  value: "secretmanager.versions.access"
+}
+]
+2026-04-20 14:20:32,851 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:20:36,120 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:20:36,450 - root - ERROR - Error initializing BigQuery cache: 403 Permission 'secretmanager.versions.access' denied on resource (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "iam.googleapis.com"
+metadata {
+  key: "permission"
+  value: "secretmanager.versions.access"
+}
+]
+2026-04-20 14:20:36,485 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:20:36,738 - root - ERROR - Error initializing GA4 source: 403 Permission 'secretmanager.versions.access' denied on resource (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "iam.googleapis.com"
+metadata {
+  key: "permission"
+  value: "secretmanager.versions.access"
+}
+]
+2026-04-20 14:21:06,358 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:21:09,186 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:21:09,546 - root - ERROR - Error initializing BigQuery cache: 403 Permission 'secretmanager.versions.access' denied on resource (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "iam.googleapis.com"
+metadata {
+  key: "permission"
+  value: "secretmanager.versions.access"
+}
+]
+2026-04-20 14:21:09,575 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:21:09,932 - root - ERROR - Error initializing GA4 source: 403 Permission 'secretmanager.versions.access' denied on resource (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "iam.googleapis.com"
+metadata {
+  key: "permission"
+  value: "secretmanager.versions.access"
+}
+]
+2026-04-20 14:22:38,859 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:22:41,662 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:22:42,043 - root - ERROR - Error initializing BigQuery cache: 403 Permission 'secretmanager.versions.access' denied on resource (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "iam.googleapis.com"
+metadata {
+  key: "permission"
+  value: "secretmanager.versions.access"
+}
+]
+2026-04-20 14:22:42,089 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:22:42,447 - root - ERROR - Error initializing GA4 source: 403 Permission 'secretmanager.versions.access' denied on resource (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "iam.googleapis.com"
+metadata {
+  key: "permission"
+  value: "secretmanager.versions.access"
+}
+]
+2026-04-20 14:24:58,553 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:25:01,447 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:25:01,845 - root - ERROR - Error initializing BigQuery cache: 403 Permission 'secretmanager.versions.access' denied on resource (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "iam.googleapis.com"
+metadata {
+  key: "permission"
+  value: "secretmanager.versions.access"
+}
+]
+2026-04-20 14:25:01,892 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:25:02,242 - root - ERROR - Error initializing GA4 source: 403 Permission 'secretmanager.versions.access' denied on resource (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "iam.googleapis.com"
+metadata {
+  key: "permission"
+  value: "secretmanager.versions.access"
+}
+]
+2026-04-20 14:26:50,728 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:26:53,568 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:26:53,722 - root - ERROR - Error initializing BigQuery cache: 400 The provided Secret ID [projects/kang-all-brand/secrets/kang-all-brand-ab0765007851.json/versions/latest] does not match the expected format [projects/*/secrets/*/versions/*]
+2026-04-20 14:26:53,749 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:26:53,749 - root - ERROR - Error initializing GA4 source: name 'os' is not defined
+2026-04-20 14:27:35,182 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:27:38,076 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:27:39,559 - root - INFO - Created dataset poc_ga4_export_raw
+2026-04-20 14:27:39,560 - root - ERROR - Error initializing BigQuery cache: 1 validation error for BigQueryCache
+project_name
+  Field required [type=missing, input_value={'project_id': 'kang-all-... object at 0x322b06a60>}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+2026-04-20 14:27:39,605 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:27:39,654 - root - INFO - Processing report: daily_active_users_intradays4
+2026-04-20 14:27:39,654 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:27:43,656 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:27:47,663 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:27:51,669 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:27:59,675 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:27:59,677 - root - ERROR - Error processing daily_active_users_intradays4: RetryError[<Future at 0x322bf3910 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:27:59,677 - root - INFO - Processing report: weekly_active_users_intradays4
+2026-04-20 14:27:59,677 - root - INFO - Processing stream: weekly_active_users_intradays4
+2026-04-20 14:28:03,682 - root - INFO - Processing stream: weekly_active_users_intradays4
+2026-04-20 14:28:07,688 - root - INFO - Processing stream: weekly_active_users_intradays4
+2026-04-20 14:28:11,692 - root - INFO - Processing stream: weekly_active_users_intradays4
+2026-04-20 14:28:19,694 - root - INFO - Processing stream: weekly_active_users_intradays4
+2026-04-20 14:28:19,695 - root - ERROR - Error processing weekly_active_users_intradays4: RetryError[<Future at 0x322d11b20 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:28:19,696 - root - INFO - Processing report: four_weekly_active_users_intradays4
+2026-04-20 14:28:19,696 - root - INFO - Processing stream: four_weekly_active_users_intradays4
+2026-04-20 14:28:23,700 - root - INFO - Processing stream: four_weekly_active_users_intradays4
+2026-04-20 14:28:27,705 - root - INFO - Processing stream: four_weekly_active_users_intradays4
+2026-04-20 14:28:31,711 - root - INFO - Processing stream: four_weekly_active_users_intradays4
+2026-04-20 14:28:39,716 - root - INFO - Processing stream: four_weekly_active_users_intradays4
+2026-04-20 14:28:39,717 - root - ERROR - Error processing four_weekly_active_users_intradays4: RetryError[<Future at 0x3237222e0 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:28:39,718 - root - INFO - Processing report: devices_intradays4
+2026-04-20 14:28:39,718 - root - INFO - Processing stream: devices_intradays4
+2026-04-20 14:28:43,723 - root - INFO - Processing stream: devices_intradays4
+2026-04-20 14:28:47,728 - root - INFO - Processing stream: devices_intradays4
+2026-04-20 14:28:51,731 - root - INFO - Processing stream: devices_intradays4
+2026-04-20 14:28:59,736 - root - INFO - Processing stream: devices_intradays4
+2026-04-20 14:28:59,738 - root - ERROR - Error processing devices_intradays4: RetryError[<Future at 0x3237224f0 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:28:59,738 - root - INFO - Processing report: locations_intradays4
+2026-04-20 14:28:59,739 - root - INFO - Processing stream: locations_intradays4
+2026-04-20 14:29:03,745 - root - INFO - Processing stream: locations_intradays4
+2026-04-20 14:29:07,750 - root - INFO - Processing stream: locations_intradays4
+2026-04-20 14:29:11,751 - root - INFO - Processing stream: locations_intradays4
+2026-04-20 14:29:19,758 - root - INFO - Processing stream: locations_intradays4
+2026-04-20 14:29:19,760 - root - ERROR - Error processing locations_intradays4: RetryError[<Future at 0x3237226d0 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:29:19,760 - root - INFO - Processing report: pages_intradays4
+2026-04-20 14:29:19,761 - root - INFO - Processing stream: pages_intradays4
+2026-04-20 14:29:23,765 - root - INFO - Processing stream: pages_intradays4
+2026-04-20 14:29:27,772 - root - INFO - Processing stream: pages_intradays4
+2026-04-20 14:29:31,777 - root - INFO - Processing stream: pages_intradays4
+2026-04-20 14:29:39,781 - root - INFO - Processing stream: pages_intradays4
+2026-04-20 14:29:39,782 - root - ERROR - Error processing pages_intradays4: RetryError[<Future at 0x3237228b0 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:29:39,782 - root - INFO - Processing report: traffic_sources_intradays4
+2026-04-20 14:29:39,783 - root - INFO - Processing stream: traffic_sources_intradays4
+2026-04-20 14:29:43,789 - root - INFO - Processing stream: traffic_sources_intradays4
+2026-04-20 14:29:47,793 - root - INFO - Processing stream: traffic_sources_intradays4
+2026-04-20 14:29:51,796 - root - INFO - Processing stream: traffic_sources_intradays4
+2026-04-20 14:29:59,801 - root - INFO - Processing stream: traffic_sources_intradays4
+2026-04-20 14:29:59,803 - root - ERROR - Error processing traffic_sources_intradays4: RetryError[<Future at 0x323722a90 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:29:59,803 - root - INFO - Processing report: website_overview_intradays4
+2026-04-20 14:29:59,805 - root - INFO - Processing stream: website_overview_intradays4
+2026-04-20 14:30:03,810 - root - INFO - Processing stream: website_overview_intradays4
+2026-04-20 14:30:07,814 - root - INFO - Processing stream: website_overview_intradays4
+2026-04-20 14:30:11,819 - root - INFO - Processing stream: website_overview_intradays4
+2026-04-20 14:30:19,824 - root - INFO - Processing stream: website_overview_intradays4
+2026-04-20 14:30:19,825 - root - ERROR - Error processing website_overview_intradays4: RetryError[<Future at 0x322bf3700 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:30:19,825 - root - INFO - Processing report: user_acquisition_first_user_medium_report_intradays4
+2026-04-20 14:30:19,825 - root - INFO - Processing stream: user_acquisition_first_user_medium_report_intradays4
+2026-04-20 14:30:23,828 - root - INFO - Processing stream: user_acquisition_first_user_medium_report_intradays4
+2026-04-20 14:30:27,830 - root - INFO - Processing stream: user_acquisition_first_user_medium_report_intradays4
+2026-04-20 14:30:31,834 - root - INFO - Processing stream: user_acquisition_first_user_medium_report_intradays4
+2026-04-20 14:30:39,839 - root - INFO - Processing stream: user_acquisition_first_user_medium_report_intradays4
+2026-04-20 14:30:39,840 - root - ERROR - Error processing user_acquisition_first_user_medium_report_intradays4: RetryError[<Future at 0x322d11700 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:30:39,840 - root - INFO - Processing report: user_acquisition_first_user_source_report_intradays4
+2026-04-20 14:30:39,840 - root - INFO - Processing stream: user_acquisition_first_user_source_report_intradays4
+2026-04-20 14:30:43,842 - root - INFO - Processing stream: user_acquisition_first_user_source_report_intradays4
+2026-04-20 14:30:47,848 - root - INFO - Processing stream: user_acquisition_first_user_source_report_intradays4
+2026-04-20 14:30:51,853 - root - INFO - Processing stream: user_acquisition_first_user_source_report_intradays4
+2026-04-20 14:30:59,855 - root - INFO - Processing stream: user_acquisition_first_user_source_report_intradays4
+2026-04-20 14:30:59,856 - root - ERROR - Error processing user_acquisition_first_user_source_report_intradays4: RetryError[<Future at 0x322d116a0 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:30:59,856 - root - INFO - Processing report: user_acquisition_first_user_source_medium_report_intradays4
+2026-04-20 14:30:59,856 - root - INFO - Processing stream: user_acquisition_first_user_source_medium_report_intradays4
+2026-04-20 14:31:03,857 - root - INFO - Processing stream: user_acquisition_first_user_source_medium_report_intradays4
+2026-04-20 14:31:07,862 - root - INFO - Processing stream: user_acquisition_first_user_source_medium_report_intradays4
+2026-04-20 14:31:11,868 - root - INFO - Processing stream: user_acquisition_first_user_source_medium_report_intradays4
+2026-04-20 14:31:19,871 - root - INFO - Processing stream: user_acquisition_first_user_source_medium_report_intradays4
+2026-04-20 14:31:19,872 - root - ERROR - Error processing user_acquisition_first_user_source_medium_report_intradays4: RetryError[<Future at 0x322d11100 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:31:19,873 - root - INFO - Processing report: user_acquisition_first_user_source_platform_report_intradays4
+2026-04-20 14:31:19,873 - root - INFO - Processing stream: user_acquisition_first_user_source_platform_report_intradays4
+2026-04-20 14:31:23,875 - root - INFO - Processing stream: user_acquisition_first_user_source_platform_report_intradays4
+2026-04-20 14:31:27,878 - root - INFO - Processing stream: user_acquisition_first_user_source_platform_report_intradays4
+2026-04-20 14:31:31,880 - root - INFO - Processing stream: user_acquisition_first_user_source_platform_report_intradays4
+2026-04-20 14:31:39,886 - root - INFO - Processing stream: user_acquisition_first_user_source_platform_report_intradays4
+2026-04-20 14:31:39,888 - root - ERROR - Error processing user_acquisition_first_user_source_platform_report_intradays4: RetryError[<Future at 0x32372d160 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:31:39,888 - root - INFO - Processing report: user_acquisition_first_user_campaign_report_intradays4
+2026-04-20 14:31:39,889 - root - INFO - Processing stream: user_acquisition_first_user_campaign_report_intradays4
+2026-04-20 14:31:43,890 - root - INFO - Processing stream: user_acquisition_first_user_campaign_report_intradays4
+2026-04-20 14:31:47,895 - root - INFO - Processing stream: user_acquisition_first_user_campaign_report_intradays4
+2026-04-20 14:31:51,896 - root - INFO - Processing stream: user_acquisition_first_user_campaign_report_intradays4
+2026-04-20 14:31:59,898 - root - INFO - Processing stream: user_acquisition_first_user_campaign_report_intradays4
+2026-04-20 14:31:59,899 - root - ERROR - Error processing user_acquisition_first_user_campaign_report_intradays4: RetryError[<Future at 0x32372d340 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:31:59,899 - root - INFO - Processing report: user_acquisition_first_user_google_ads_ad_network_type_report_intradays4
+2026-04-20 14:31:59,899 - root - INFO - Processing stream: user_acquisition_first_user_google_ads_ad_network_type_report_intradays4
+2026-04-20 14:32:03,903 - root - INFO - Processing stream: user_acquisition_first_user_google_ads_ad_network_type_report_intradays4
+2026-04-20 14:32:07,911 - root - INFO - Processing stream: user_acquisition_first_user_google_ads_ad_network_type_report_intradays4
+2026-04-20 14:32:11,917 - root - INFO - Processing stream: user_acquisition_first_user_google_ads_ad_network_type_report_intradays4
+2026-04-20 14:32:19,923 - root - INFO - Processing stream: user_acquisition_first_user_google_ads_ad_network_type_report_intradays4
+2026-04-20 14:32:19,924 - root - ERROR - Error processing user_acquisition_first_user_google_ads_ad_network_type_report_intradays4: RetryError[<Future at 0x32372d520 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:32:19,925 - root - INFO - Processing report: user_acquisition_first_user_google_ads_ad_group_name_report_intradays4
+2026-04-20 14:32:19,925 - root - INFO - Processing stream: user_acquisition_first_user_google_ads_ad_group_name_report_intradays4
+2026-04-20 14:32:23,929 - root - INFO - Processing stream: user_acquisition_first_user_google_ads_ad_group_name_report_intradays4
+2026-04-20 14:32:27,935 - root - INFO - Processing stream: user_acquisition_first_user_google_ads_ad_group_name_report_intradays4
+2026-04-20 14:32:31,942 - root - INFO - Processing stream: user_acquisition_first_user_google_ads_ad_group_name_report_intradays4
+2026-04-20 14:32:39,948 - root - INFO - Processing stream: user_acquisition_first_user_google_ads_ad_group_name_report_intradays4
+2026-04-20 14:32:39,949 - root - ERROR - Error processing user_acquisition_first_user_google_ads_ad_group_name_report_intradays4: RetryError[<Future at 0x32372d700 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:32:39,950 - root - INFO - Processing report: traffic_acquisition_session_source_medium_report_intradays4
+2026-04-20 14:32:39,950 - root - INFO - Processing stream: traffic_acquisition_session_source_medium_report_intradays4
+2026-04-20 14:32:43,955 - root - INFO - Processing stream: traffic_acquisition_session_source_medium_report_intradays4
+2026-04-20 14:32:47,962 - root - INFO - Processing stream: traffic_acquisition_session_source_medium_report_intradays4
+2026-04-20 14:32:51,966 - root - INFO - Processing stream: traffic_acquisition_session_source_medium_report_intradays4
+2026-04-20 14:32:59,973 - root - INFO - Processing stream: traffic_acquisition_session_source_medium_report_intradays4
+2026-04-20 14:32:59,976 - root - ERROR - Error processing traffic_acquisition_session_source_medium_report_intradays4: RetryError[<Future at 0x32372d8e0 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:32:59,977 - root - INFO - Processing report: traffic_acquisition_session_medium_report_intradays4
+2026-04-20 14:32:59,977 - root - INFO - Processing stream: traffic_acquisition_session_medium_report_intradays4
+2026-04-20 14:33:03,982 - root - INFO - Processing stream: traffic_acquisition_session_medium_report_intradays4
+2026-04-20 14:33:07,989 - root - INFO - Processing stream: traffic_acquisition_session_medium_report_intradays4
+2026-04-20 14:33:11,994 - root - INFO - Processing stream: traffic_acquisition_session_medium_report_intradays4
+2026-04-20 14:33:20,000 - root - INFO - Processing stream: traffic_acquisition_session_medium_report_intradays4
+2026-04-20 14:33:20,003 - root - ERROR - Error processing traffic_acquisition_session_medium_report_intradays4: RetryError[<Future at 0x32372dac0 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:33:20,003 - root - INFO - Processing report: traffic_acquisition_session_source_report_intradays4
+2026-04-20 14:33:20,004 - root - INFO - Processing stream: traffic_acquisition_session_source_report_intradays4
+2026-04-20 14:33:24,007 - root - INFO - Processing stream: traffic_acquisition_session_source_report_intradays4
+2026-04-20 14:33:28,011 - root - INFO - Processing stream: traffic_acquisition_session_source_report_intradays4
+2026-04-20 14:33:32,015 - root - INFO - Processing stream: traffic_acquisition_session_source_report_intradays4
+2026-04-20 14:33:40,020 - root - INFO - Processing stream: traffic_acquisition_session_source_report_intradays4
+2026-04-20 14:33:40,021 - root - ERROR - Error processing traffic_acquisition_session_source_report_intradays4: RetryError[<Future at 0x32372dca0 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:33:40,021 - root - INFO - Processing report: traffic_acquisition_session_campaign_report_intradays4
+2026-04-20 14:33:40,022 - root - INFO - Processing stream: traffic_acquisition_session_campaign_report_intradays4
+2026-04-20 14:33:44,027 - root - INFO - Processing stream: traffic_acquisition_session_campaign_report_intradays4
+2026-04-20 14:33:48,028 - root - INFO - Processing stream: traffic_acquisition_session_campaign_report_intradays4
+2026-04-20 14:33:52,032 - root - INFO - Processing stream: traffic_acquisition_session_campaign_report_intradays4
+2026-04-20 14:34:00,036 - root - INFO - Processing stream: traffic_acquisition_session_campaign_report_intradays4
+2026-04-20 14:34:00,037 - root - ERROR - Error processing traffic_acquisition_session_campaign_report_intradays4: RetryError[<Future at 0x32372de80 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:34:00,038 - root - INFO - Processing report: traffic_acquisition_session_default_channel_grouping_report_intradays4
+2026-04-20 14:34:00,038 - root - INFO - Processing stream: traffic_acquisition_session_default_channel_grouping_report_intradays4
+2026-04-20 14:34:04,040 - root - INFO - Processing stream: traffic_acquisition_session_default_channel_grouping_report_intradays4
+2026-04-20 14:34:08,046 - root - INFO - Processing stream: traffic_acquisition_session_default_channel_grouping_report_intradays4
+2026-04-20 14:34:12,049 - root - INFO - Processing stream: traffic_acquisition_session_default_channel_grouping_report_intradays4
+2026-04-20 14:34:20,055 - root - INFO - Processing stream: traffic_acquisition_session_default_channel_grouping_report_intradays4
+2026-04-20 14:34:20,057 - root - ERROR - Error processing traffic_acquisition_session_default_channel_grouping_report_intradays4: RetryError[<Future at 0x32372df70 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:34:20,058 - root - INFO - Processing report: traffic_acquisition_session_source_platform_report_intradays4
+2026-04-20 14:34:20,059 - root - INFO - Processing stream: traffic_acquisition_session_source_platform_report_intradays4
+2026-04-20 14:34:24,062 - root - INFO - Processing stream: traffic_acquisition_session_source_platform_report_intradays4
+2026-04-20 14:34:28,069 - root - INFO - Processing stream: traffic_acquisition_session_source_platform_report_intradays4
+2026-04-20 14:34:32,076 - root - INFO - Processing stream: traffic_acquisition_session_source_platform_report_intradays4
+2026-04-20 14:34:40,078 - root - INFO - Processing stream: traffic_acquisition_session_source_platform_report_intradays4
+2026-04-20 14:34:40,079 - root - ERROR - Error processing traffic_acquisition_session_source_platform_report_intradays4: RetryError[<Future at 0x323741280 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:34:40,080 - root - INFO - Processing report: events_report_intradays4
+2026-04-20 14:34:40,080 - root - INFO - Processing stream: events_report_intradays4
+2026-04-20 14:34:44,086 - root - INFO - Processing stream: events_report_intradays4
+2026-04-20 14:34:48,092 - root - INFO - Processing stream: events_report_intradays4
+2026-04-20 14:34:52,098 - root - INFO - Processing stream: events_report_intradays4
+2026-04-20 14:35:00,104 - root - INFO - Processing stream: events_report_intradays4
+2026-04-20 14:35:00,104 - root - ERROR - Error processing events_report_intradays4: RetryError[<Future at 0x323741460 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:35:00,105 - root - INFO - Processing report: conversions_report_intradays4
+2026-04-20 14:35:00,105 - root - INFO - Processing stream: conversions_report_intradays4
+2026-04-20 14:35:04,106 - root - INFO - Processing stream: conversions_report_intradays4
+2026-04-20 14:35:08,112 - root - INFO - Processing stream: conversions_report_intradays4
+2026-04-20 14:35:12,117 - root - INFO - Processing stream: conversions_report_intradays4
+2026-04-20 14:35:20,118 - root - INFO - Processing stream: conversions_report_intradays4
+2026-04-20 14:35:20,119 - root - ERROR - Error processing conversions_report_intradays4: RetryError[<Future at 0x322d11100 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:35:20,119 - root - INFO - Processing report: pages_title_and_screen_class_report_intradays4
+2026-04-20 14:35:20,119 - root - INFO - Processing stream: pages_title_and_screen_class_report_intradays4
+2026-04-20 14:35:24,123 - root - INFO - Processing stream: pages_title_and_screen_class_report_intradays4
+2026-04-20 14:35:28,128 - root - INFO - Processing stream: pages_title_and_screen_class_report_intradays4
+2026-04-20 14:39:19,273 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:39:22,989 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:39:23,524 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 14:39:23,525 - root - ERROR - Error initializing BigQuery cache: 1 validation error for BigQueryCache
+project_name
+  Field required [type=missing, input_value={'project_id': 'kang-all-... object at 0x16a606f40>}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+2026-04-20 14:39:23,572 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:39:23,620 - root - INFO - Processing report: daily_active_users_intradays4
+2026-04-20 14:39:23,620 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:39:27,621 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:39:31,628 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:41:01,208 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:41:04,211 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:41:04,722 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 14:41:04,722 - root - ERROR - Error initializing BigQuery cache: 1 validation error for BigQueryCache
+project_name
+  Field required [type=missing, input_value={'project_id': 'kang-all-... object at 0x16e746100>}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+2026-04-20 14:41:04,750 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:41:04,792 - root - INFO - Processing report: daily_active_users_intradays4
+2026-04-20 14:41:04,793 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:41:08,795 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:41:12,800 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:41:16,803 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:41:24,809 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:41:24,811 - root - ERROR - Error processing daily_active_users_intradays4: RetryError[<Future at 0x16e764bb0 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:41:25,395 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16f1e8a00>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:41:25,463 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16f1e8a00>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:41:25,591 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16f1e8a00>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:41:26,552 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16f1e8a00>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:41:29,897 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16f1e8a00>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:41:34,479 - grpc._plugin_wrapping - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x16f1e8a00>" raised exception!
+Traceback (most recent call last):
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 228, in before_request
+    self._blocking_refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/auth/credentials.py", line 191, in _blocking_refresh
+    self.refresh(request)
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "/Volumes/WorkspaceData/second-brain/COG-second-brain/04-projects/GA42BIGQUERY-main/.venv/lib/python3.9/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2026-04-20 14:41:54,300 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:41:57,163 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:41:57,718 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 14:41:57,719 - root - ERROR - Error initializing BigQuery cache: 1 validation error for BigQueryCache
+project_name
+  Field required [type=missing, input_value={'project_id': 'kang-all-... object at 0x338e04100>}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+2026-04-20 14:41:57,757 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:41:57,803 - root - INFO - Processing report: daily_active_users_intradays4
+2026-04-20 14:41:57,804 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:42:01,808 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:42:05,816 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:42:09,822 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:42:17,824 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:42:17,826 - root - ERROR - Error processing daily_active_users_intradays4: RetryError[<Future at 0x338e234c0 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:42:18,481 - app.utils.pubsub_utils - ERROR - Error publishing to ga4topic: 404 Resource not found (resource=ga4topic).
+2026-04-20 14:42:18,482 - root - ERROR - Error initializing GA4 source: 404 Resource not found (resource=ga4topic).
+2026-04-20 14:43:05,038 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:43:07,878 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:43:08,419 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 14:43:08,420 - root - ERROR - Error initializing BigQuery cache: 1 validation error for BigQueryCache
+project_name
+  Field required [type=missing, input_value={'project_id': 'kang-all-... object at 0x16ab840d0>}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+2026-04-20 14:43:08,464 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:43:08,513 - root - INFO - Processing report: daily_active_users_intradays4
+2026-04-20 14:43:08,513 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:43:12,518 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:43:16,525 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:43:20,527 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:43:28,533 - root - INFO - Processing stream: daily_active_users_intradays4
+2026-04-20 14:43:28,533 - root - ERROR - Error processing daily_active_users_intradays4: RetryError[<Future at 0x16ab70dc0 state=finished raised AirbyteStreamNotFoundError>]
+2026-04-20 14:43:28,543 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:43:28,969 - app.utils.pubsub_utils - ERROR - Error publishing to ga4topic: 404 Resource not found (resource=ga4topic).
+2026-04-20 14:43:28,969 - root - ERROR - Error initializing GA4 source: 404 Resource not found (resource=ga4topic).
+2026-04-20 14:49:54,661 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:49:57,470 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:49:58,053 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 14:49:58,084 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:49:59,757 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:01,814 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:01,821 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:02,361 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:50:02,421 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 14:50:02,421 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:50:08,250 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:18,786 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:18,790 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:23,500 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:50:28,795 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:36,885 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:36,889 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:41,599 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:50:46,832 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:54,145 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:54,149 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:50:58,848 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:51:03,780 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:51:11,677 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:51:11,681 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:51:20,357 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:51:25,282 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:51:33,670 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:51:33,674 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:51:34,358 - root - ERROR - Error processing daily_active_users_intradays4: RetryError[<Future at 0x33186ed30 state=finished raised OSError>]
+2026-04-20 14:51:34,368 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2026-04-20 14:51:34,595 - app.utils.pubsub_utils - INFO - Message published to ga4topic: The following reports failed: daily_active_users_intradays4
+2026-04-20 14:51:34,595 - root - INFO - process_reports Done! 0/1 successful
+2026-04-20 14:51:44,031 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:51:47,308 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:51:47,873 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 14:51:51,223 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:51:51,292 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 14:51:51,292 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:52:16,872 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:52:37,152 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:52:43,514 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:52:46,288 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:52:46,823 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 14:52:49,487 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:52:49,556 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 14:52:49,556 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:53:43,233 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:54:18,474 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:54:52,556 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:55:30,056 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:56:02,703 - root - ERROR - Error processing daily_active_users_intradays4: RetryError[<Future at 0x16fb7d4f0 state=finished raised InvalidRequestError>]
+2026-04-20 14:56:02,949 - app.utils.pubsub_utils - INFO - Message published to ga4topic: The following reports failed: daily_active_users_intradays4
+2026-04-20 14:56:02,949 - root - INFO - process_reports Done! 0/1 successful
+2026-04-20 14:56:08,894 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:56:11,706 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:56:12,220 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 14:56:14,360 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:56:14,404 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 14:56:14,404 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:56:46,087 - root - INFO - Cache to_pandas() failed for daily_active_users, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (daily_active_users)
+2026-04-20 14:56:46,155 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.daily_active_users
+2026-04-20 14:56:47,042 - root - ERROR - Fallback Direct BigQuery query failed: Please install the 'db-dtypes' package to use this function.
+2026-04-20 14:56:51,047 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:57:33,626 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:57:36,318 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:57:36,820 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 14:57:39,081 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:57:39,145 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 14:57:39,145 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:58:05,733 - root - INFO - Cache to_pandas() failed for daily_active_users, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (daily_active_users)
+2026-04-20 14:58:05,801 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.daily_active_users
+2026-04-20 14:58:09,565 - root - INFO - Retrieved 11 rows for stream daily_active_users
+2026-04-20 14:58:09,584 - root - INFO - Saved CSV to /tmp/daily_active_users_intradays4.csv
+2026-04-20 14:58:09,584 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 14:58:10,124 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 does not exist, will be created
+2026-04-20 14:58:10,479 - root - ERROR - Error loading data to BigQuery: 404 POST https://bigquery.googleapis.com/upload/bigquery/v2/projects/kang-all-brand/jobs?uploadType=multipart: Not found: Dataset kang-all-brand:poc_ga4_export
+2026-04-20 14:58:14,484 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 14:58:14,799 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 does not exist, will be created
+2026-04-20 14:58:15,121 - root - ERROR - Error loading data to BigQuery: 404 POST https://bigquery.googleapis.com/upload/bigquery/v2/projects/kang-all-brand/jobs?uploadType=multipart: Not found: Dataset kang-all-brand:poc_ga4_export
+2026-04-20 14:58:19,126 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 14:58:19,434 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 does not exist, will be created
+2026-04-20 14:58:19,752 - root - ERROR - Error loading data to BigQuery: 404 POST https://bigquery.googleapis.com/upload/bigquery/v2/projects/kang-all-brand/jobs?uploadType=multipart: Not found: Dataset kang-all-brand:poc_ga4_export
+2026-04-20 14:58:23,757 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 14:58:24,166 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 does not exist, will be created
+2026-04-20 14:58:24,457 - root - ERROR - Error loading data to BigQuery: 404 POST https://bigquery.googleapis.com/upload/bigquery/v2/projects/kang-all-brand/jobs?uploadType=multipart: Not found: Dataset kang-all-brand:poc_ga4_export
+2026-04-20 14:58:32,459 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 14:58:32,763 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 does not exist, will be created
+2026-04-20 14:58:33,082 - root - ERROR - Error loading data to BigQuery: 404 POST https://bigquery.googleapis.com/upload/bigquery/v2/projects/kang-all-brand/jobs?uploadType=multipart: Not found: Dataset kang-all-brand:poc_ga4_export
+2026-04-20 14:58:33,083 - root - ERROR - Error processing daily_active_users_intradays4: RetryError[<Future at 0x16bc439a0 state=finished raised NotFound>]
+2026-04-20 14:58:33,308 - app.utils.pubsub_utils - INFO - Message published to ga4topic: The following reports failed: daily_active_users_intradays4
+2026-04-20 14:58:33,308 - root - INFO - process_reports Done! 0/1 successful
+2026-04-20 14:59:12,124 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 14:59:14,915 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 14:59:15,528 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 14:59:18,532 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 14:59:18,592 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 14:59:18,592 - root - INFO - Processing stream: daily_active_users
+2026-04-20 14:59:46,754 - root - INFO - Cache to_pandas() failed for daily_active_users, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (daily_active_users)
+2026-04-20 14:59:46,827 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.daily_active_users
+2026-04-20 14:59:50,520 - root - INFO - Retrieved 11 rows for stream daily_active_users
+2026-04-20 14:59:50,538 - root - INFO - Saved CSV to /tmp/daily_active_users_intradays4.csv
+2026-04-20 14:59:50,538 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 14:59:50,847 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 does not exist, will be created
+2026-04-20 14:59:54,727 - root - INFO - Successfully loaded 11 rows into kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 14:59:54,728 - root - INFO - Successfully processed daily_active_users_intradays4
+2026-04-20 14:59:54,945 - app.utils.pubsub_utils - INFO - Message published to ga4topic: All available_reports processed
+2026-04-20 14:59:54,945 - root - INFO - process_reports Done! 1/1 successful
+2026-04-20 15:17:37,252 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 15:17:40,173 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 15:17:41,314 - root - INFO - Created dataset poc_ga4_export_raw
+2026-04-20 15:17:44,404 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 15:17:44,473 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 15:17:44,473 - root - INFO - Processing stream: daily_active_users
+2026-04-20 15:18:21,192 - root - INFO - Cache to_pandas() failed for daily_active_users, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (daily_active_users)
+2026-04-20 15:18:21,260 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.daily_active_users
+2026-04-20 15:18:24,977 - root - INFO - Retrieved 11 rows for stream daily_active_users
+2026-04-20 15:18:24,986 - root - INFO - Saved CSV to /tmp/daily_active_users_intradays4.csv
+2026-04-20 15:18:24,986 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:18:25,444 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 exists, using WRITE_TRUNCATE
+2026-04-20 15:18:28,440 - root - INFO - Successfully loaded 11 rows into kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:18:28,441 - root - INFO - Successfully processed daily_active_users_intradays4
+2026-04-20 15:18:28,442 - root - INFO - Processing report: engagement_metrics_report_intradays4 (Source stream: engagement_metrics_report)
+2026-04-20 15:18:28,443 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:18:56,825 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:19:19,903 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:19:44,319 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:20:12,595 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:20:41,547 - root - ERROR - Error processing engagement_metrics_report_intradays4: RetryError[<Future at 0x3419a4cd0 state=finished raised BadRequest>]
+2026-04-20 15:20:41,795 - app.utils.pubsub_utils - INFO - Message published to ga4topic: The following reports failed: engagement_metrics_report_intradays4
+2026-04-20 15:20:41,796 - root - INFO - process_reports Done! 1/2 successful
+2026-04-20 15:21:03,954 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 15:22:04,135 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 15:22:07,299 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 15:22:07,734 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 15:22:10,069 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 15:22:10,139 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 15:22:10,139 - root - INFO - Processing stream: daily_active_users
+2026-04-20 15:22:41,371 - root - INFO - Cache to_pandas() failed for daily_active_users, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (daily_active_users)
+2026-04-20 15:22:41,430 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.daily_active_users
+2026-04-20 15:22:46,087 - root - INFO - Retrieved 11 rows for stream daily_active_users
+2026-04-20 15:22:46,102 - root - INFO - Saved CSV to /tmp/daily_active_users_intradays4.csv
+2026-04-20 15:22:46,102 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:22:46,461 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 exists, using WRITE_TRUNCATE
+2026-04-20 15:22:49,746 - root - INFO - Successfully loaded 11 rows into kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:22:49,747 - root - INFO - Successfully processed daily_active_users_intradays4
+2026-04-20 15:22:49,748 - root - INFO - Processing report: engagement_metrics_report_intradays4 (Source stream: engagement_metrics_report)
+2026-04-20 15:22:49,748 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:23:24,447 - root - INFO - Cache to_pandas() failed for engagement_metrics_report, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (engagement_metrics_report)
+2026-04-20 15:23:24,517 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.engagement_metrics_report
+2026-04-20 15:23:28,087 - root - INFO - Retrieved 34 rows for stream engagement_metrics_report
+2026-04-20 15:23:28,089 - root - INFO - Saved CSV to /tmp/engagement_metrics_report_intradays4.csv
+2026-04-20 15:23:28,089 - root - INFO - Loading 34 rows to BigQuery table: kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4
+2026-04-20 15:23:28,290 - root - INFO - Table kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4 does not exist, will be created
+2026-04-20 15:23:32,306 - root - INFO - Successfully loaded 34 rows into kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4
+2026-04-20 15:23:32,306 - root - INFO - Successfully processed engagement_metrics_report_intradays4
+2026-04-20 15:23:32,557 - app.utils.pubsub_utils - INFO - Message published to ga4topic: All available_reports processed
+2026-04-20 15:23:32,557 - root - INFO - process_reports Done! 2/2 successful
+2026-04-20 15:28:34,748 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 15:28:38,085 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 15:28:38,568 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 15:28:41,127 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 15:28:41,192 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 15:28:41,193 - root - INFO - Processing stream: daily_active_users
+2026-04-20 15:29:12,460 - root - INFO - Cache to_pandas() failed for daily_active_users, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (daily_active_users)
+2026-04-20 15:29:12,518 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.daily_active_users
+2026-04-20 15:29:16,291 - root - INFO - Retrieved 11 rows for stream daily_active_users
+2026-04-20 15:29:16,312 - root - INFO - Saved CSV to /tmp/daily_active_users_intradays4.csv
+2026-04-20 15:29:16,313 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:29:16,640 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 exists, using WRITE_TRUNCATE
+2026-04-20 15:29:20,658 - root - INFO - Successfully loaded 11 rows into kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:29:20,659 - root - INFO - Successfully processed daily_active_users_intradays4
+2026-04-20 15:29:20,659 - root - INFO - Processing report: engagement_metrics_report_intradays4 (Source stream: engagement_metrics_report)
+2026-04-20 15:29:20,659 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:29:57,854 - root - INFO - Cache to_pandas() failed for engagement_metrics_report, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (engagement_metrics_report)
+2026-04-20 15:29:57,921 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.engagement_metrics_report
+2026-04-20 15:30:02,343 - root - INFO - Retrieved 18851 rows for stream engagement_metrics_report
+2026-04-20 15:30:02,424 - root - INFO - Saved CSV to /tmp/engagement_metrics_report_intradays4.csv
+2026-04-20 15:30:02,424 - root - INFO - Loading 18851 rows to BigQuery table: kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4
+2026-04-20 15:30:02,699 - root - INFO - Table kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4 exists, using WRITE_TRUNCATE
+2026-04-20 15:30:07,386 - root - INFO - Successfully loaded 18851 rows into kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4
+2026-04-20 15:30:07,387 - root - INFO - Successfully processed engagement_metrics_report_intradays4
+2026-04-20 15:30:07,663 - app.utils.pubsub_utils - INFO - Message published to ga4topic: All available_reports processed
+2026-04-20 15:30:07,663 - root - INFO - process_reports Done! 2/2 successful
+2026-04-20 15:37:43,836 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 15:37:47,185 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 15:37:47,710 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 15:37:50,330 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 15:37:50,397 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 15:37:50,398 - root - INFO - Processing stream: daily_active_users
+2026-04-20 15:38:32,549 - root - INFO - Cache to_pandas() failed for daily_active_users, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (daily_active_users)
+2026-04-20 15:38:32,605 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.daily_active_users
+2026-04-20 15:38:36,500 - root - INFO - Retrieved 11 rows for stream daily_active_users
+2026-04-20 15:38:36,509 - root - INFO - Saved CSV to /tmp/daily_active_users_intradays4.csv
+2026-04-20 15:38:36,509 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:38:36,869 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 exists, using WRITE_TRUNCATE
+2026-04-20 15:38:40,743 - root - INFO - Successfully loaded 11 rows into kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:38:40,743 - root - INFO - Successfully processed daily_active_users_intradays4
+2026-04-20 15:38:40,744 - root - INFO - Processing report: engagement_metrics_report_intradays4 (Source stream: engagement_metrics_report)
+2026-04-20 15:38:40,744 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:39:07,455 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:39:31,583 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:40:19,066 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 15:40:22,514 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 15:40:23,034 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 15:40:25,493 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 15:40:25,559 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 15:40:25,560 - root - INFO - Processing stream: daily_active_users
+2026-04-20 15:40:57,012 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:41:13,163 - root - INFO - Cache to_pandas() failed for daily_active_users, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (daily_active_users)
+2026-04-20 15:41:13,225 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.daily_active_users
+2026-04-20 15:41:16,825 - root - INFO - Retrieved 11 rows for stream daily_active_users
+2026-04-20 15:41:16,835 - root - INFO - Saved CSV to /tmp/daily_active_users_intradays4.csv
+2026-04-20 15:41:16,835 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:41:17,215 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 exists, using WRITE_TRUNCATE
+2026-04-20 15:41:20,574 - root - INFO - Successfully loaded 11 rows into kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:41:20,574 - root - INFO - Successfully processed daily_active_users_intradays4
+2026-04-20 15:41:20,574 - root - INFO - Processing report: engagement_metrics_report_intradays4 (Source stream: engagement_metrics_report)
+2026-04-20 15:41:20,574 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:41:25,368 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:41:42,102 - root - ERROR - Error processing engagement_metrics_report_intradays4: RetryError[<Future at 0x157efc880 state=finished raised BadRequest>]
+2026-04-20 15:41:42,363 - app.utils.pubsub_utils - INFO - Message published to ga4topic: The following reports failed: engagement_metrics_report_intradays4
+2026-04-20 15:41:42,363 - root - INFO - process_reports Done! 1/2 successful
+2026-04-20 15:41:47,379 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:42:09,730 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:42:11,105 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 15:42:14,325 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 15:42:14,788 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 15:42:17,191 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 15:42:17,244 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 15:42:17,244 - root - INFO - Processing stream: daily_active_users
+2026-04-20 15:42:31,601 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:42:45,830 - root - INFO - Cache to_pandas() failed for daily_active_users, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (daily_active_users)
+2026-04-20 15:42:45,895 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.daily_active_users
+2026-04-20 15:42:49,033 - root - INFO - Retrieved 11 rows for stream daily_active_users
+2026-04-20 15:42:49,055 - root - INFO - Saved CSV to /tmp/daily_active_users_intradays4.csv
+2026-04-20 15:42:49,056 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:42:49,665 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 exists, using WRITE_TRUNCATE
+2026-04-20 15:42:53,475 - root - INFO - Successfully loaded 11 rows into kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:42:53,476 - root - INFO - Successfully processed daily_active_users_intradays4
+2026-04-20 15:42:53,477 - root - INFO - Processing report: engagement_metrics_report_intradays4 (Source stream: engagement_metrics_report)
+2026-04-20 15:42:53,478 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:42:58,991 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 15:43:19,003 - root - ERROR - Error processing engagement_metrics_report_intradays4: RetryError[<Future at 0x1558731c0 state=finished raised BadRequest>]
+2026-04-20 15:43:19,271 - app.utils.pubsub_utils - INFO - Message published to ga4topic: The following reports failed: engagement_metrics_report_intradays4
+2026-04-20 15:43:19,271 - root - INFO - process_reports Done! 1/2 successful
+2026-04-20 15:43:26,760 - root - INFO - Cache to_pandas() failed for engagement_metrics_report, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (engagement_metrics_report)
+2026-04-20 15:43:26,829 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.engagement_metrics_report
+2026-04-20 15:43:31,248 - root - INFO - Retrieved 18869 rows for stream engagement_metrics_report
+2026-04-20 15:43:31,334 - root - INFO - Saved CSV to /tmp/engagement_metrics_report_intradays4.csv
+2026-04-20 15:43:31,334 - root - INFO - Loading 18869 rows to BigQuery table: kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4
+2026-04-20 15:43:31,578 - root - INFO - Table kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4 exists, using WRITE_TRUNCATE
+2026-04-20 15:43:35,279 - root - INFO - Successfully loaded 18869 rows into kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4
+2026-04-20 15:43:35,281 - root - INFO - Successfully processed engagement_metrics_report_intradays4
+2026-04-20 15:43:35,526 - app.utils.pubsub_utils - INFO - Message published to ga4topic: All available_reports processed
+2026-04-20 15:43:35,527 - root - INFO - process_reports Done! 2/2 successful
+2026-04-20 15:58:31,197 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 15:58:34,525 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement_metrics_report']
+2026-04-20 15:58:34,993 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 15:58:37,284 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 15:58:37,339 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 15:58:37,339 - root - INFO - Processing stream: daily_active_users
+2026-04-20 15:59:07,152 - root - INFO - Cache to_pandas() failed for daily_active_users, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (daily_active_users)
+2026-04-20 15:59:07,200 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.daily_active_users
+2026-04-20 15:59:10,509 - root - INFO - Retrieved 11 rows for stream daily_active_users
+2026-04-20 15:59:10,520 - root - INFO - Saved CSV to /tmp/daily_active_users_intradays4.csv
+2026-04-20 15:59:10,520 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:59:10,920 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 exists, using WRITE_TRUNCATE
+2026-04-20 15:59:13,902 - root - INFO - Successfully loaded 11 rows into kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 15:59:13,903 - root - INFO - Successfully processed daily_active_users_intradays4
+2026-04-20 15:59:13,903 - root - INFO - Processing report: engagement_metrics_report_intradays4 (Source stream: engagement_metrics_report)
+2026-04-20 15:59:13,903 - root - INFO - Processing stream: engagement_metrics_report
+2026-04-20 16:00:05,465 - root - INFO - Cache to_pandas() failed for engagement_metrics_report, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (engagement_metrics_report)
+2026-04-20 16:00:05,517 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.engagement_metrics_report
+2026-04-20 16:00:09,875 - root - INFO - Retrieved 18883 rows for stream engagement_metrics_report
+2026-04-20 16:00:09,947 - root - INFO - Saved CSV to /tmp/engagement_metrics_report_intradays4.csv
+2026-04-20 16:00:09,947 - root - INFO - Loading 18883 rows to BigQuery table: kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4
+2026-04-20 16:00:10,217 - root - INFO - Table kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4 exists, using WRITE_TRUNCATE
+2026-04-20 16:00:15,565 - root - INFO - Successfully loaded 18883 rows into kang-all-brand.poc_ga4_export.engagement_metrics_report_intradays4
+2026-04-20 16:00:15,565 - root - INFO - Successfully processed engagement_metrics_report_intradays4
+2026-04-20 16:00:16,325 - app.utils.pubsub_utils - INFO - Message published to ga4topic: All available_reports processed
+2026-04-20 16:00:16,326 - root - INFO - process_reports Done! 2/2 successful
+2026-04-20 16:02:15,365 - root - INFO - Using Service Account credentials from kang-all-brand-9d2c06fcb379.json.
+2026-04-20 16:02:18,446 - root - INFO - Available streams after config: ['daily_active_users', 'weekly_active_users', 'four_weekly_active_users', 'devices', 'locations', 'pages', 'traffic_sources', 'website_overview', 'user_acquisition_first_user_medium_report', 'user_acquisition_first_user_source_report', 'user_acquisition_first_user_source_medium_report', 'user_acquisition_first_user_source_platform_report', 'user_acquisition_first_user_campaign_report', 'user_acquisition_first_user_google_ads_ad_network_type_report', 'user_acquisition_first_user_google_ads_ad_group_name_report', 'traffic_acquisition_session_source_medium_report', 'traffic_acquisition_session_medium_report', 'traffic_acquisition_session_source_report', 'traffic_acquisition_session_campaign_report', 'traffic_acquisition_session_default_channel_grouping_report', 'traffic_acquisition_session_source_platform_report', 'events_report', 'weekly_events_report', 'conversions_report', 'pages_title_and_screen_class_report', 'pages_path_report', 'pages_title_and_screen_name_report', 'content_group_report', 'ecommerce_purchases_item_name_report', 'ecommerce_purchases_item_id_report', 'ecommerce_purchases_item_category_report_combined', 'ecommerce_purchases_item_category_report', 'ecommerce_purchases_item_category_2_report', 'ecommerce_purchases_item_category_3_report', 'ecommerce_purchases_item_category_4_report', 'ecommerce_purchases_item_category_5_report', 'ecommerce_purchases_item_brand_report', 'publisher_ads_ad_unit_report', 'publisher_ads_page_path_report', 'publisher_ads_ad_format_report', 'publisher_ads_ad_source_report', 'demographic_country_report', 'demographic_region_report', 'demographic_city_report', 'demographic_language_report', 'demographic_age_report', 'demographic_gender_report', 'demographic_interest_report', 'tech_browser_report', 'tech_device_category_report', 'tech_device_model_report', 'tech_screen_resolution_report', 'tech_app_version_report', 'tech_platform_report', 'tech_platform_device_category_report', 'tech_operating_system_report', 'tech_os_with_version_report', 'engagement']
+2026-04-20 16:02:18,972 - root - INFO - Dataset poc_ga4_export_raw already exists
+2026-04-20 16:02:21,341 - root - INFO - Using BigQuery cache for Airbyte
+2026-04-20 16:02:21,406 - root - INFO - Processing report: daily_active_users_intradays4 (Source stream: daily_active_users)
+2026-04-20 16:02:21,406 - root - INFO - Processing stream: daily_active_users
+2026-04-20 16:02:54,660 - root - INFO - Cache to_pandas() failed for daily_active_users, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (daily_active_users)
+2026-04-20 16:02:54,729 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.daily_active_users
+2026-04-20 16:02:58,699 - root - INFO - Retrieved 11 rows for stream daily_active_users
+2026-04-20 16:02:58,710 - root - INFO - Saved CSV to /tmp/daily_active_users_intradays4.csv
+2026-04-20 16:02:58,711 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 16:02:59,108 - root - INFO - Table kang-all-brand.poc_ga4_export.daily_active_users_intradays4 exists, using WRITE_TRUNCATE
+2026-04-20 16:03:02,368 - root - INFO - Successfully loaded 11 rows into kang-all-brand.poc_ga4_export.daily_active_users_intradays4
+2026-04-20 16:03:02,369 - root - INFO - Successfully processed daily_active_users_intradays4
+2026-04-20 16:03:02,369 - root - INFO - Processing report: engagement (Source stream: engagement)
+2026-04-20 16:03:02,369 - root - INFO - Processing stream: engagement
+2026-04-20 16:03:45,165 - root - INFO - Cache to_pandas() failed for engagement, attempting direct BigQuery query: Could not reflect: requested table(s) not available in Engine(bigquery://kang-all-brand?credentials_path=kang-all-brand-ab0765007851.json) schema 'poc_ga4_export_raw': (engagement)
+2026-04-20 16:03:45,229 - root - INFO - Querying table directly: kang-all-brand.poc_ga4_export_raw.engagement
+2026-04-20 16:03:48,132 - root - INFO - Retrieved 11 rows for stream engagement
+2026-04-20 16:03:48,140 - root - INFO - Saved CSV to /tmp/engagement.csv
+2026-04-20 16:03:48,140 - root - INFO - Loading 11 rows to BigQuery table: kang-all-brand.poc_ga4_export.engagement
+2026-04-20 16:03:48,379 - root - INFO - Table kang-all-brand.poc_ga4_export.engagement does not exist, will be created
+2026-04-20 16:03:52,418 - root - INFO - Successfully loaded 11 rows into kang-all-brand.poc_ga4_export.engagement
+2026-04-20 16:03:52,420 - root - INFO - Successfully processed engagement
+2026-04-20 16:03:53,031 - app.utils.pubsub_utils - INFO - Message published to ga4topic: All available_reports processed
+2026-04-20 16:03:53,031 - root - INFO - process_reports Done! 2/2 successful

@@ -1,0 +1,20 @@
+### Core Web Framework
+fastapi==0.112.1
+uvicorn==0.30.6
+
+### Google Cloud Platform Dependencies
+google-api-core==2.19.1
+google-auth==2.34.0
+google-cloud-bigquery==3.25.0
+google-cloud-logging==3.11.2
+google-cloud-pubsub==2.23.0
+google-cloud-secret-manager==2.20.2
+google-cloud-storage==2.18.2
+functions-framework==3.*
+
+### Data Processing
+pandas==2.1.4
+airbyte>=0.16.4
+
+### Environment Management
+python-dotenv==1.0.1
