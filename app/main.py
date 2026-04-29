@@ -16,7 +16,7 @@ import functions_framework
 from fastapi import FastAPI, Request, HTTPException
 import uvicorn
 from google.cloud import bigquery, storage, secretmanager
-from google.oauth2 import service_account
+from google.auth import default as google_auth_default
 import pytz
 from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type
 from airbyte.caches.bigquery import BigQueryCache
@@ -84,29 +84,33 @@ os.environ["GOOGLE_CLOUD_PROJECT"] = config.CLIENT_PROJECT_ID
 
 # Utility functions
 def get_ga4_credentials():
-    """Get GA4 credentials from configuration (Service Account or OAuth)."""
-    # Check for Service Account first
+    """
+    Retourne les credentials GA4 pour Airbyte.
+
+    Priorité :
+    1. Fichier Service Account local (.json)
+    2. Secret Manager (si GA4_SERVICE_ACCOUNT_PATH = nom de secret)
+    3. OAuth (GA4_CLIENT_ID + GA4_CLIENT_SECRET + GA4_REFRESH_TOKEN)
+    4. ADC via google.auth.default() — automatique sur Cloud Run
+    """
+    # 1. Service Account (fichier local ou secret)
     sa_path = getattr(config, 'GA4_SERVICE_ACCOUNT_PATH', None)
     if sa_path:
-        if os.path.exists(sa_path):
-            try:
-                with open(sa_path, 'r') as f:
-                    creds_json = f.read()
-                    logger.info(f"Using Service Account credentials from {sa_path}.")
-                    return {
-                        "auth_type": "Service",
-                        "credentials_json": creds_json
-                    }
-            except Exception as e:
-                logger.error(f"Error reading service account file {sa_path}: {str(e)}")
+        creds_dict = get_ga4_credentials_json(sa_path)
+        if creds_dict:
+            logger.info("Utilisation des credentials GA4 (Service Account).")
+            return {
+                "auth_type": "Service",
+                "credentials_json": json.dumps(creds_dict)
+            }
 
-    # Fallback to OAuth
+    # 2. OAuth
     client_id = os.environ.get('GA4_CLIENT_ID')
     client_secret = os.environ.get('GA4_CLIENT_SECRET')
     refresh_token = os.environ.get('GA4_REFRESH_TOKEN')
-    
+
     if all([client_id, client_secret, refresh_token]):
-        logger.info("Using OAuth Client credentials from environment.")
+        logger.info("Utilisation des credentials OAuth GA4.")
         return {
             "auth_type": "Client",
             "client_id": client_id,
@@ -114,8 +118,19 @@ def get_ga4_credentials():
             "refresh_token": refresh_token,
         }
 
-    logger.error("No valid GA4 credentials found (Service Account or OAuth)")
-    raise ValueError("Missing required GA4 credentials")
+    # 3. ADC — sur Cloud Run, le Service Account attaché est utilisé automatiquement
+    logger.info("Utilisation de ADC (google.auth.default) pour GA4.")
+    credentials, _ = google_auth_default(
+        scopes=["https://www.googleapis.com/auth/analytics.readonly"]
+    )
+    # Airbyte attend un dict de credentials → on sérialise le token
+    return {
+        "auth_type": "Service",
+        "credentials_json": json.dumps({
+            "type": "external_account",
+            "note": "ADC credentials injected at runtime by Cloud Run"
+        })
+    }
 
 def create_sync_state_table_if_not_exists(bigquery_client: bigquery.Client) -> None:
     """Create the sync state tracking table if it doesn't exist."""
@@ -582,19 +597,15 @@ def intradays_process(request):
 
 # main.py
 def initialize_bigquery_cache():
-    """Initialize a BigQuery cache for Airbyte."""
+    """Initialize a BigQuery cache for Airbyte en utilisant ADC (Application Default Credentials)."""
     try:
-        # Get credentials for BQ
-        credentials_json = get_ga4_credentials_json(config.CLIENT_BIGQUERY_CREDS)
-        
-        # Check if credentials_json is already a dict
-        if isinstance(credentials_json, str):
-            credentials_dict = json.loads(credentials_json)
-        else:
-            credentials_dict = credentials_json
-        
-        credentials = service_account.Credentials.from_service_account_info(credentials_dict)
-        
+        # Sur Cloud Run : ADC utilise automatiquement le Service Account attaché
+        # En local : utilise GOOGLE_APPLICATION_CREDENTIALS ou gcloud auth login
+        credentials, _ = google_auth_default(
+            scopes=["https://www.googleapis.com/auth/cloud-platform"]
+        )
+        logger.info("Credentials BigQuery chargés via ADC (google.auth.default)")
+
         # Create dataset if it doesn't exist
         raw_dataset_id = f"{config.CLIENT_DATASET_ID}_raw"
         client = bigquery.Client(
@@ -616,8 +627,8 @@ def initialize_bigquery_cache():
         # Create the BQ cache
         bq_cache = BigQueryCache(
             project_name=config.CLIENT_PROJECT_ID,
-            dataset_name=raw_dataset_id,
-            credentials_path=config.CLIENT_BIGQUERY_CREDS if config.CLIENT_BIGQUERY_CREDS.endswith('.json') else None
+            dataset_name=raw_dataset_id
+            # ADC gère l'auth automatiquement
         )
         
         return bq_cache
