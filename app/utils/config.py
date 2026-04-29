@@ -13,8 +13,7 @@ class Config:
     # GCP Project Configuration
     CLIENT_PROJECT_ID = os.getenv('CLIENT_PROJECT_ID', 'optimalways')
     CLIENT_DATASET_ID = os.getenv('CLIENT_DATASET_ID', 'poc_ga4_export')
-    #CLIENT_BIGQUERY_CREDS = os.getenv('CLIENT_BIGQUERY_CREDS', 'BIGQUERY_CREDS_SECRET_NAME')
-    CLIENT_BIGQUERY_CREDS = os.getenv("CLIENT_BIGQUERY_CREDS")
+    CLIENT_BIGQUERY_CREDS = os.getenv('CLIENT_BIGQUERY_CREDS', 'BIGQUERY_CREDS_SECRET_NAME')
 
     # Service Configuration
     SERVICE_PROJECT_ID = os.getenv('SERVICE_PROJECT_ID', 'mythic-benefit-690')
@@ -31,6 +30,7 @@ class Config:
     GA4_CLIENT_SECRET = os.getenv('GA4_CLIENT_SECRET')
     GA4_REFRESH_TOKEN = os.getenv('GA4_REFRESH_TOKEN')
     GA4_SERVICE_ACCOUNT_PATH = os.getenv('GA4_SERVICE_ACCOUNT_PATH')
+    GA4_SERVICE_ACCOUNT_SECRET = os.getenv("GA4_SERVICE_ACCOUNT_SECRET")
 
     # Reports available for processing
     AVAILABLE_REPORTS = [
@@ -53,7 +53,7 @@ class Config:
         missing_common = [var for var in common_required if not getattr(cls, var)]
         
         # Check authentication (either Service Account OR full OAuth triplet)
-        has_sa = bool(cls.GA4_SERVICE_ACCOUNT_PATH)
+        has_sa = bool(cls.GA4_SERVICE_ACCOUNT_PATH or cls.GA4_SERVICE_ACCOUNT_SECRET)
         has_oauth = all([cls.GA4_CLIENT_ID, cls.GA4_CLIENT_SECRET, cls.GA4_REFRESH_TOKEN])
         
         if not (has_sa or has_oauth):

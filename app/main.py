@@ -83,29 +83,49 @@ os.environ["GOOGLE_CLOUD_PROJECT"] = config.CLIENT_PROJECT_ID
 
 # Utility functions
 def get_ga4_credentials():
-    """Get GA4 credentials from configuration (Service Account or OAuth)."""
-    # Check for Service Account first
-    sa_path = getattr(config, 'GA4_SERVICE_ACCOUNT_PATH', None)
+    """Get GA4 credentials from Secret Manager, local file, or OAuth."""
+
+    # 1. Service Account depuis Secret Manager
+    sa_secret = getattr(config, "GA4_SERVICE_ACCOUNT_SECRET", None)
+
+    if sa_secret:
+        try:
+            creds_json_dict = get_ga4_credentials_json(sa_secret)
+
+            logger.info(f"Using GA4 Service Account credentials from Secret Manager: {sa_secret}")
+
+            return {
+                "auth_type": "Service",
+                "credentials_json": json.dumps(creds_json_dict)
+            }
+
+        except Exception as e:
+            logger.error(f"Error reading GA4 service account secret {sa_secret}: {str(e)}")
+            raise
+
+    # 2. Service Account depuis fichier local
+    sa_path = getattr(config, "GA4_SERVICE_ACCOUNT_PATH", None)
+
     if sa_path:
         if os.path.exists(sa_path):
-            try:
-                with open(sa_path, 'r') as f:
-                    creds_json = f.read()
-                    logger.info(f"Using Service Account credentials from {sa_path}.")
-                    return {
-                        "auth_type": "Service",
-                        "credentials_json": creds_json
-                    }
-            except Exception as e:
-                logger.error(f"Error reading service account file {sa_path}: {str(e)}")
+            with open(sa_path, "r") as f:
+                creds_json = f.read()
 
-    # Fallback to OAuth
-    client_id = os.environ.get('GA4_CLIENT_ID')
-    client_secret = os.environ.get('GA4_CLIENT_SECRET')
-    refresh_token = os.environ.get('GA4_REFRESH_TOKEN')
-    
+            logger.info(f"Using GA4 Service Account credentials from file: {sa_path}")
+
+            return {
+                "auth_type": "Service",
+                "credentials_json": creds_json
+            }
+
+    # 3. Fallback OAuth
+    client_id = os.environ.get("GA4_CLIENT_ID")
+    client_secret = os.environ.get("GA4_CLIENT_SECRET")
+    refresh_token = os.environ.get("GA4_REFRESH_TOKEN")
+
     if all([client_id, client_secret, refresh_token]):
         logger.info("Using OAuth Client credentials from environment.")
+
         return {
             "auth_type": "Client",
             "client_id": client_id,
@@ -113,8 +133,7 @@ def get_ga4_credentials():
             "refresh_token": refresh_token,
         }
 
-    logger.error("No valid GA4 credentials found (Service Account or OAuth)")
-    raise ValueError("Missing required GA4 credentials")
+    raise ValueError("No valid GA4 credentials found")
 
 def create_sync_state_table_if_not_exists(bigquery_client: bigquery.Client) -> None:
     """Create the sync state tracking table if it doesn't exist."""
