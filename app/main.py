@@ -680,7 +680,6 @@ def get_ga4_source_config(start_date: str, end_date: str):
                 "dimensions": ["date"],
                 "metrics": [
                     "sessions",
-                    "session_start",
                     "totalUsers",
                     "engagedSessions",
                     "purchase",
