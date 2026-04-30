@@ -682,11 +682,11 @@ def get_ga4_source_config(start_date: str, end_date: str):
                     "sessions",
                     "totalUsers",
                     "engagedSessions",
-                    "purchase",
-                    "conversions",
-                    "engagement_time_msec",
-                    "addToCart",
-                    "ecommercePurchases"
+                    "userEngagementDuration",
+                    "addToCarts",
+                    "checkouts",
+                    "ecommercePurchases",
+                    "purchaseRevenue"
                 ],
                 "date_ranges": [
                     {
