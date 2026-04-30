@@ -34,9 +34,7 @@ class Config:
 
     # Reports available for processing
     AVAILABLE_REPORTS = [
-        'daily_active_users_intradays4',
-        'engagement',
-        'traffic_acquisition_intradays4',
+        'overall_report_intradays4',
     ]
 
     @classmethod

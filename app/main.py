@@ -676,27 +676,26 @@ def get_ga4_source_config(start_date: str, end_date: str):
         "credentials": get_ga4_credentials(),
         "custom_reports_array": [
             {
-                "name": "engagement",
+                "name": "overall_report",
                 "dimensions": ["date"],
-                "metrics": ["sessions"],
+                "metrics": [
+                    "sessions",
+                    "session_start",
+                    "totalUsers",
+                    "engagedSessions",
+                    "purchase",
+                    "conversions",
+                    "engagement_time_msec",
+                    "addToCart",
+                    "ecommercePurchases"
+                ],
                 "date_ranges": [
                     {
                         "start_date": start_date,
                         "end_date": end_date
                     }
                 ]
-            },
-            {
-                "name": "traffic_acquisition",
-                "dimensions": ["date", "sessionDefaultChannelGroup", "sessionSourceMedium"],
-                "metrics": ["sessions", "totalUsers", "newUsers", "engagedSessions"],
-                "date_ranges": [
-                    {
-                        "start_date": start_date,
-                        "end_date": end_date
-                    }
-                ]
-            }       
+            },    
        ]
     }
 
