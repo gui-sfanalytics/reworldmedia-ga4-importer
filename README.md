@@ -2,7 +2,6 @@
 
 A production-ready Google Analytics 4 (GA4) data pipeline that syncs analytics data to Google BigQuery using Airbyte connectors. The application supports both Cloud Function deployment and local FastAPI server execution.
 
-deploy 
 ## Table of Contents
 
 - [Overview](#overview)
