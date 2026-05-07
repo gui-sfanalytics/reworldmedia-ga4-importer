@@ -698,51 +698,7 @@ def get_ga4_source_config(start_date: str, end_date: str):
                 ]
             },
             {
-                "name": "events_pages_report",
-                 "dimensions": [
-                    "date",
-                    "eventName",
-                    "pagePath"
-                ],
-                "metrics": [
-                    "sessions",
-                    "screenPageViews",
-                    "eventCount"
-                ],
-                "date_ranges": [
-                    {
-                        "start_date": start_date,
-                        "end_date": end_date
-                    }
-                ]
-            },
-            {
-                "name": "cart_events",
-                 "dimensions": [
-                    "date",
-                    "eventName"
-                ],
-                "metrics": [
-                    "eventCount"
-                ],
-                "dimensionFilter": {
-                    "filter": {
-                        "fieldName": "eventName",
-                        "stringFilter": {
-                            "match_type": "EXACT",
-                            "value": "view_cart"
-                        }
-                    }
-                },
-                "date_ranges": [
-                    {
-                        "start_date": start_date,
-                        "end_date": end_date
-                    }
-                ]
-            },
-            {
-                "name": "cart_page_sessions",
+                "name": "path_sessions",
                 "dimensions": [
                     "date",
                     "pagePath"
@@ -751,15 +707,6 @@ def get_ga4_source_config(start_date: str, end_date: str):
                     "sessions",
                     "screenPageViews"
                 ],
-                "dimension_filter": {
-                    "filter": {
-                        "field_name": "pagePath",
-                        "string_filter": {
-                            "match_type": "EXACT",
-                            "value": "/cart"
-                        }
-                    }
-                },
                 "date_ranges": [
                     {
                         "start_date": start_date,
@@ -768,7 +715,7 @@ def get_ga4_source_config(start_date: str, end_date: str):
                 ]
             },
             {
-                "name": "purchase_sessions",
+                "name": "all_events_sessions",
                 "dimensions": [
                     "date",
                     "eventName"
@@ -777,15 +724,6 @@ def get_ga4_source_config(start_date: str, end_date: str):
                     "sessions",
                     "eventCount"
                 ],
-                "dimension_filter": {
-                    "filter": {
-                        "field_name": "eventName",
-                            "string_filter": {
-                                "match_type": "EXACT",
-                                "value": "purchase"
-                            }
-                    }
-                },
                 "date_ranges": [
                     {
                         "start_date": start_date,
