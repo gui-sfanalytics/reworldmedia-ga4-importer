@@ -725,10 +725,10 @@ def get_ga4_source_config(start_date: str, end_date: str):
                 "metrics": [
                     "eventCount"
                 ],
-                "dimension_filter": {
+                "dimensionFilter": {
                     "filter": {
-                        "field_name": "eventName",
-                        "string_filter": {
+                        "fieldName": "eventName",
+                        "stringFilter": {
                             "match_type": "EXACT",
                             "value": "view_cart"
                         }

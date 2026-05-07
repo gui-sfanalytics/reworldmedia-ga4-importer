@@ -34,9 +34,7 @@ class Config:
 
     # Reports available for processing
     AVAILABLE_REPORTS = [
-        'cart_events_intradays4',
-        'cart_page_sessions_intradays4',
-        'purchase_sessions_intradays4'
+        'cart_events_intradays4'
     ]
 
     @classmethod
