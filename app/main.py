@@ -734,7 +734,11 @@ def get_ga4_source_config(start_date: str, end_date: str):
         ]
     }
 
-def process_ga4_reports_standalone(available_reports: list[str]) -> dict:
+def process_ga4_reports_standalone(
+        available_reports: list[str],
+        start_date: str,
+        end_date: str
+    ) -> dict:
     current_time = datetime.now()
     start_date = (current_time.date() - timedelta(days=10)).strftime("%Y-%m-%d")
     end_date = (current_time.date() - timedelta(days=1)).strftime("%Y-%m-%d")
@@ -832,10 +836,15 @@ def process_ga4_reports_standalone(available_reports: list[str]) -> dict:
     }
 
 
-def initialize_ga4_source_with_custom_reports():
+def initialize_ga4_source_with_custom_reports(start_date, end_date):
     validate_config(config)
     config.validate()
-    return process_ga4_reports_standalone(config.AVAILABLE_REPORTS)
+
+    return process_ga4_reports_standalone(
+        config.AVAILABLE_REPORTS,
+        start_date,
+        end_date
+    )
 
 app = FastAPI()
 
@@ -855,8 +864,15 @@ async def process_endpoint(request: Request):
 @app.get("/init")
 async def setup_default_daily_table(request: Request):
     try:
-        result = initialize_ga4_source_with_custom_reports()
+        start_date = request.query_params.get("start_date") or "30daysAgo"
+        end_date = request.query_params.get("end_date") or "yesterday"
+
+        result = initialize_ga4_source_with_custom_reports(
+            start_date,
+            end_date
+        )
         return result
+    
     except Exception as e:
         logger.error(f"Error in setup endpoint: {str(e)}")
         return {"status": "error", "message": str(e)}
