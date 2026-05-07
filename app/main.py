@@ -698,75 +698,17 @@ def get_ga4_source_config(start_date: str, end_date: str):
                 ]
             },
             {
-                "name": "cart_events",
+                "name": "events_pages_report",
                  "dimensions": [
                     "date",
-                    "eventName"
-                ],
-                "metrics": [
-                    "eventCount"
-                ],
-                "dimension_filter": {
-                    "filter": {
-                        "field_name": "eventName",
-                        "string_filter": {
-                            "match_type": "EXACT",
-                            "value": "view_cart"
-                        }
-                    }
-                },
-                "date_ranges": [
-                    {
-                        "start_date": start_date,
-                        "end_date": end_date
-                    }
-                ]
-            },
-            {
-                "name": "cart_page_sessions",
-                "dimensions": [
-                    "date",
+                    "eventName",
                     "pagePath"
                 ],
                 "metrics": [
                     "sessions",
-                    "screenPageViews"
-                ],
-                "dimension_filter": {
-                    "filter": {
-                        "field_name": "pagePath",
-                        "string_filter": {
-                            "match_type": "EXACT",
-                            "value": "/cart"
-                        }
-                    }
-                },
-                "date_ranges": [
-                    {
-                        "start_date": start_date,
-                        "end_date": end_date
-                    }
-                ]
-            },
-            {
-                "name": "purchase_sessions",
-                "dimensions": [
-                    "date",
-                    "eventName"
-                ],
-                "metrics": [
-                    "sessions",
+                    "screenPageViews",
                     "eventCount"
                 ],
-                "dimension_filter": {
-                    "filter": {
-                        "field_name": "eventName",
-                            "string_filter": {
-                                "match_type": "EXACT",
-                                "value": "purchase"
-                            }
-                    }
-                },
                 "date_ranges": [
                     {
                         "start_date": start_date,
