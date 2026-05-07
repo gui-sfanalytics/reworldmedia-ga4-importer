@@ -739,9 +739,6 @@ def process_ga4_reports_standalone(
         start_date: str,
         end_date: str
     ) -> dict:
-    current_time = datetime.now()
-    start_date = (current_time.date() - timedelta(days=10)).strftime("%Y-%m-%d")
-    end_date = (current_time.date() - timedelta(days=1)).strftime("%Y-%m-%d")
 
     source_config = get_ga4_source_config(start_date, end_date)
 
