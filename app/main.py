@@ -861,13 +861,16 @@ async def process_endpoint(request: Request):
 @app.get("/init")
 async def setup_default_daily_table(request: Request):
     try:
-        start_date = request.query_params.get("start_date") or "30daysAgo"
-        end_date = request.query_params.get("end_date") or "yesterday"
+        current_time = datetime.now()
+        start_date = request.query_params.get("start_date") or (current_time.date() - timedelta(days=10)).strftime("%Y-%m-%d")
+        end_date = request.query_params.get("end_date") or (current_time.date() - timedelta(days=1)).strftime("%Y-%m-%d")
 
         result = initialize_ga4_source_with_custom_reports(
             start_date,
             end_date
         )
+
+        logger.info(f"setup timeframe: {start_date} to {end_date}")
         return result
     
     except Exception as e:
