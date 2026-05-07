@@ -676,7 +676,7 @@ def get_ga4_source_config(start_date: str, end_date: str):
         "credentials": get_ga4_credentials(),
         "custom_reports_array": [
             {
-                "name": "overall_report",
+                "name": "ga4_overall_report",
                 "dimensions": ["date"],
                 "metrics": [
                     "sessions",
@@ -698,7 +698,7 @@ def get_ga4_source_config(start_date: str, end_date: str):
                 ]
             },
             {
-                "name": "path_sessions",
+                "name": "ga4_path_sessions",
                 "dimensions": [
                     "date",
                     "pagePath"
@@ -715,7 +715,7 @@ def get_ga4_source_config(start_date: str, end_date: str):
                 ]
             },
             {
-                "name": "all_events_sessions",
+                "name": "ga4_all_events_sessions",
                 "dimensions": [
                     "date",
                     "eventName"

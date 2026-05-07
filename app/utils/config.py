@@ -34,9 +34,9 @@ class Config:
 
     # Reports available for processing
     AVAILABLE_REPORTS = [
-        "overall_report_intradays4",
-        "path_sessions_intradays4",
-        "all_events_sessions_intradays4"
+        "ga4_overall_report_intradays4",
+        "ga4_path_sessions_intradays4",
+        "ga4_all_events_sessions_intradays4"
     ]
 
     @classmethod
