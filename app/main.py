@@ -681,6 +681,8 @@ def get_ga4_source_config(start_date: str, end_date: str):
                 "metrics": [
                     "sessions",
                     "totalUsers",
+                    "bounceRate",
+                    "averageSessionDuration",
                     "engagedSessions",
                     "userEngagementDuration",
                     "addToCarts",
@@ -694,8 +696,85 @@ def get_ga4_source_config(start_date: str, end_date: str):
                         "end_date": end_date
                     }
                 ]
-            },    
-       ]
+            },
+            {
+                "name": "cart_events",
+                 "dimensions": [
+                    "date",
+                    "eventName"
+                ],
+                "metrics": [
+                    "eventCount"
+                ],
+                "dimension_filter": {
+                    "filter": {
+                        "field_name": "eventName",
+                        "string_filter": {
+                            "match_type": "EXACT",
+                            "value": "view_cart"
+                        }
+                    }
+                },
+                "date_ranges": [
+                    {
+                        "start_date": start_date,
+                        "end_date": end_date
+                    }
+                ]
+            },
+            {
+                "name": "cart_page_sessions",
+                "dimensions": [
+                    "date",
+                    "pagePath"
+                ],
+                "metrics": [
+                    "sessions",
+                    "screenPageViews"
+                ],
+                "dimension_filter": {
+                    "filter": {
+                        "field_name": "pagePath",
+                        "string_filter": {
+                            "match_type": "EXACT",
+                            "value": "/cart"
+                        }
+                    }
+                },
+                "date_ranges": [
+                    {
+                        "start_date": start_date,
+                        "end_date": end_date
+                    }
+                ]
+            },
+            {
+                "name": "purchase_sessions",
+                "dimensions": [
+                    "date",
+                    "eventName"
+                ],
+                "metrics": [
+                    "sessions",
+                    "eventCount"
+                ],
+                "dimension_filter": {
+                    "filter": {
+                        "field_name": "eventName",
+                            "string_filter": {
+                                "match_type": "EXACT",
+                                "value": "purchase"
+                            }
+                    }
+                },
+                "date_ranges": [
+                    {
+                        "start_date": start_date,
+                        "end_date": end_date
+                    }
+                ]
+            }
+        ]
     }
 
 def process_ga4_reports_standalone(available_reports: list[str]) -> dict:
