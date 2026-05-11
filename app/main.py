@@ -817,7 +817,34 @@ def process_ga4_reports_standalone(
         df["_processed_at"] = datetime.now().isoformat()
 
         try:
-            load_to_bigquery(df, bigquery_client, report, write_disposition="WRITE_APPEND")
+            # Sécurité : garder uniquement la période demandée
+            df = df[(df["date"] >= start_date) & (df["date"] <= end_date)]
+
+            table_id = f"{config.CLIENT_PROJECT_ID}.{config.CLIENT_DATASET_ID}.{report}"
+
+            # Supprime uniquement les dates relancées
+            delete_query = f"""
+                DELETE FROM `{table_id}`
+                WHERE date BETWEEN @start_date AND @end_date
+            """
+
+            delete_job_config = bigquery.QueryJobConfig(
+                query_parameters=[
+                    bigquery.ScalarQueryParameter("start_date", "DATE", start_date),
+                    bigquery.ScalarQueryParameter("end_date", "DATE", end_date),
+                ]
+            )
+
+            bigquery_client.query(delete_query, job_config=delete_job_config).result()
+
+            # Réinsère seulement ces dates
+            load_to_bigquery(
+                df,
+                bigquery_client,
+                report,
+                write_disposition="WRITE_APPEND"
+            )
+
             successful_reports.append(report)
         except Exception as e:
             logger.error(f"Error loading {report}: {str(e)}")
