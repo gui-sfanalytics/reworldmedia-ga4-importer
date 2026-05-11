@@ -820,24 +820,36 @@ def process_ga4_reports_standalone(
             # Sécurité : garder uniquement la période demandée
             df = df[(df["date"] >= start_date) & (df["date"] <= end_date)]
 
+            if df.empty:
+                logger.warning(f"No rows left for {report} between {start_date} and {end_date}")
+                failed_reports.append(report)
+                continue
+
             table_id = f"{config.CLIENT_PROJECT_ID}.{config.CLIENT_DATASET_ID}.{report}"
 
-            # Supprime uniquement les dates relancées
-            delete_query = f"""
-                DELETE FROM `{table_id}`
-                WHERE date BETWEEN @start_date AND @end_date
-            """
+            table_exists = True
+            try:
+                bigquery_client.get_table(table_id)
+            except Exception:
+                table_exists = False
 
-            delete_job_config = bigquery.QueryJobConfig(
-                query_parameters=[
-                    bigquery.ScalarQueryParameter("start_date", "DATE", start_date),
-                    bigquery.ScalarQueryParameter("end_date", "DATE", end_date),
-                ]
-            )
+            if table_exists:
+                delete_query = f"""
+                    DELETE FROM `{table_id}`
+                    WHERE date BETWEEN @start_date AND @end_date
+                """
 
-            bigquery_client.query(delete_query, job_config=delete_job_config).result()
+                delete_job_config = bigquery.QueryJobConfig(
+                    query_parameters=[
+                        bigquery.ScalarQueryParameter("start_date", "DATE", start_date),
+                        bigquery.ScalarQueryParameter("end_date", "DATE", end_date),
+                    ]
+                )
 
-            # Réinsère seulement ces dates
+                bigquery_client.query(delete_query, job_config=delete_job_config).result()
+
+            # Si la table n'existe pas, BigQuery la crée ici.
+            # Si elle existe, on ajoute seulement les lignes nettoyées.
             load_to_bigquery(
                 df,
                 bigquery_client,
@@ -846,6 +858,7 @@ def process_ga4_reports_standalone(
             )
 
             successful_reports.append(report)
+
         except Exception as e:
             logger.error(f"Error loading {report}: {str(e)}")
             failed_reports.append(report)
