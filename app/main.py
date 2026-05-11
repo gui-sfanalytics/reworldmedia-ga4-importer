@@ -347,7 +347,7 @@ def get_bq_type(column_name, dtype):
     stop=stop_after_attempt(5)
 )
 def load_to_bigquery(df: pd.DataFrame, bigquery_client: bigquery.Client, table_name: str, 
-                    write_disposition: str = "WRITE_TRUNCATE") -> None:
+                    write_disposition: str = "WRITE_APPEND") -> None:
     """Load DataFrame to BigQuery with schema matching CSV headers and retry logic."""
     table_id = f'{config.CLIENT_PROJECT_ID}.{config.CLIENT_DATASET_ID}.{table_name}'
     logger.info(f"Loading {len(df)} rows to BigQuery table: {table_id}")
@@ -658,8 +658,8 @@ def build_configured_catalog(discover_messages: list[dict], wanted_streams: list
         if stream_name in wanted_streams:
             selected_streams.append({
                 "stream": stream_def,
-                "sync_mode": "full_refresh",
-                "destination_sync_mode": "overwrite"
+                "sync_mode": "incremental",
+                "destination_sync_mode": "append"
             })
 
     if not selected_streams:
@@ -817,7 +817,7 @@ def process_ga4_reports_standalone(
         df["_processed_at"] = datetime.now().isoformat()
 
         try:
-            load_to_bigquery(df, bigquery_client, report)
+            load_to_bigquery(df, bigquery_client, report, write_disposition="WRITE_APPEND")
             successful_reports.append(report)
         except Exception as e:
             logger.error(f"Error loading {report}: {str(e)}")
