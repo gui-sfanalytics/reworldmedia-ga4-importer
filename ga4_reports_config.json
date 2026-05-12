@@ -1,0 +1,53 @@
+{
+  "available_reports": [
+    "ga4_overall_report_intradays4",
+    "ga4_path_sessions_intradays4",
+    "ga4_all_events_sessions_intradays4"
+  ],
+  "custom_reports_array": [
+    {
+      "name": "ga4_overall_report",
+      "dimensions": ["date"],
+      "metrics": [
+        "sessions",
+        "totalUsers",
+        "bounceRate",
+        "averageSessionDuration",
+        "engagedSessions",
+        "userEngagementDuration",
+        "addToCarts",
+        "checkouts",
+        "ecommercePurchases",
+        "purchaseRevenue"
+      ],
+      "date_ranges": [
+        {
+          "start_date": "{{start_date}}",
+          "end_date": "{{end_date}}"
+        }
+      ]
+    },
+    {
+      "name": "ga4_path_sessions",
+      "dimensions": ["date", "pagePath"],
+      "metrics": ["sessions", "screenPageViews"],
+      "date_ranges": [
+        {
+          "start_date": "{{start_date}}",
+          "end_date": "{{end_date}}"
+        }
+      ]
+    },
+    {
+      "name": "ga4_all_events_sessions",
+      "dimensions": ["date", "eventName"],
+      "metrics": ["sessions", "eventCount"],
+      "date_ranges": [
+        {
+          "start_date": "{{start_date}}",
+          "end_date": "{{end_date}}"
+        }
+      ]
+    }
+  ]
+}

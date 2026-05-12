@@ -667,71 +667,65 @@ def build_configured_catalog(discover_messages: list[dict], wanted_streams: list
 
     return {"streams": selected_streams}
 
+def replace_placeholders(obj, start_date: str, end_date: str):
+    if isinstance(obj, dict):
+        return {
+            key: replace_placeholders(value, start_date, end_date)
+            for key, value in obj.items()
+        }
+
+    if isinstance(obj, list):
+        return [
+            replace_placeholders(item, start_date, end_date)
+            for item in obj
+        ]
+
+    if isinstance(obj, str):
+        return (
+            obj
+            .replace("{{start_date}}", start_date)
+            .replace("{{end_date}}", end_date)
+        )
+
+    return obj
+
+
+def get_reports_config(start_date: str, end_date: str) -> dict:
+    secret_name = os.getenv("GA4_REPORTS_CONFIG_SECRET")
+
+    if not secret_name:
+        raise ValueError("GA4_REPORTS_CONFIG_SECRET is not configured")
+
+    client = secretmanager.SecretManagerServiceClient()
+
+    secret_path = (
+        f"projects/{config.CLIENT_PROJECT_ID}"
+        f"/secrets/{secret_name}/versions/latest"
+    )
+
+    response = client.access_secret_version(request={"name": secret_path})
+    raw_config = response.payload.data.decode("utf-8")
+
+    reports_config = json.loads(raw_config)
+
+    reports_config["custom_reports_array"] = replace_placeholders(
+        reports_config["custom_reports_array"],
+        start_date,
+        end_date
+    )
+
+    return reports_config
+
 def get_ga4_source_config(start_date: str, end_date: str):
+    reports_config = get_reports_config(start_date, end_date)
+
     return {
         "property_ids": [config.PROPERTY_IDS],
         "date_ranges_start_date": start_date,
         "date_ranges_end_date": end_date,
         "window_in_days": 1,
         "credentials": get_ga4_credentials(),
-        "custom_reports_array": [
-            {
-                "name": "ga4_overall_report",
-                "dimensions": ["date"],
-                "metrics": [
-                    "sessions",
-                    "totalUsers",
-                    "bounceRate",
-                    "averageSessionDuration",
-                    "engagedSessions",
-                    "userEngagementDuration",
-                    "addToCarts",
-                    "checkouts",
-                    "ecommercePurchases",
-                    "purchaseRevenue"
-                ],
-                "date_ranges": [
-                    {
-                        "start_date": start_date,
-                        "end_date": end_date
-                    }
-                ]
-            },
-            {
-                "name": "ga4_path_sessions",
-                "dimensions": [
-                    "date",
-                    "pagePath"
-                ],
-                "metrics": [
-                    "sessions",
-                    "screenPageViews"
-                ],
-                "date_ranges": [
-                    {
-                        "start_date": start_date,
-                        "end_date": end_date
-                    }
-                ]
-            },
-            {
-                "name": "ga4_all_events_sessions",
-                "dimensions": [
-                    "date",
-                    "eventName"
-                ],
-                "metrics": [
-                    "sessions",
-                    "eventCount"
-                ],
-                "date_ranges": [
-                    {
-                        "start_date": start_date,
-                        "end_date": end_date
-                    }
-                ]
-            }   
-        ]
+        "custom_reports_array": reports_config["custom_reports_array"]
     }
 
 def process_ga4_reports_standalone(
@@ -877,8 +871,10 @@ def initialize_ga4_source_with_custom_reports(start_date, end_date):
     validate_config(config)
     config.validate()
 
+    reports_config = get_reports_config(start_date, end_date)
+
     return process_ga4_reports_standalone(
-        config.AVAILABLE_REPORTS,
+        reports_config["available_reports"],
         start_date,
         end_date
     )
